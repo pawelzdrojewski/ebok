@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { OdczytComponent } from './odczyt/odczyt.component';
 import { LicznikiComponent } from './liczniki/liczniki.component';
 import { FakturyComponent } from './faktury/faktury.component';
+import { KlientComponent } from './klient/klient.component';
+import { ZgloszeniaComponent } from './zgloszenia/zgloszenia.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FakturyComponent } from './faktury/faktury.component';
     LoginComponent,
     OdczytComponent,
     LicznikiComponent,
-    FakturyComponent
+    FakturyComponent,
+    KlientComponent,
+    ZgloszeniaComponent
   ],
   imports: [
     BrowserModule,

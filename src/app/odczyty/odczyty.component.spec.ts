@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OdczytComponent } from './odczyt.component';
+import { OdczytyComponent } from './odczyty.component';
 
-describe('OdczytComponent', () => {
-  let component: OdczytComponent;
-  let fixture: ComponentFixture<OdczytComponent>;
+describe('OdczytyComponent', () => {
+  let component: OdczytyComponent;
+  let fixture: ComponentFixture<OdczytyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OdczytComponent ]
+      declarations: [ OdczytyComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OdczytComponent);
+    fixture = TestBed.createComponent(OdczytyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

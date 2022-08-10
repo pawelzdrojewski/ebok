@@ -44,8 +44,20 @@
             <td><button class="btn btn-primary" type="submit">Przelądaj</button></td>
             <td>10.03.2022 r.</td>
             <td class="text-warning">Do zapłaty <i class="bi bi-exclamation-circle"></i></td>
-            <td><button class="btn btn-primary" type="submit"><i class="bi bi-filetype-pdf"></i></button></td>
+            <td><button class="btn btn-primary" (click)=show() type="submit"><i class="bi bi-filetype-pdf"></i></button></td>
           </tr>
+            <tr class="container" *ngIf="podglad">
+              <th scope="row"></th>
+              <td colspan="7"><div class="container">To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+                To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd></div></td>
+            </tr>
         </tbody>
       </table>
+</div>
+<!--footer-->
+<div class="row gx-1 ">
+    
+  <div class="col-12">
+    <app-footer></app-footer>
+  </div>
 </div>

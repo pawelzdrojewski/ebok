@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FakturyComponent implements OnInit {
 
-  public podglad: boolean = false;
+  podglad: boolean = false;
 
   constructor() { }
 

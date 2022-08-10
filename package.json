@@ -10,7 +10,9 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/core": "^13.3.9",
     "@angular/animations": "^14.1.1",
+    "@angular/cdk": "^14.1.1",
     "@angular/common": "^14.1.1",
     "@angular/compiler": "^14.1.1",
     "@angular/core": "^14.1.1",
@@ -23,6 +25,7 @@
     "mdb-angular-ui-kit": "^2.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
+    "v": "file:angular/cli@13",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

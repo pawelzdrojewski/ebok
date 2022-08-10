@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   in(){
     console.log(this.Auth.login());
-    if (this.Auth.login()) 
+    if (this.Auth.session) 
     this.router.navigate(['/faktury']);
   }
 

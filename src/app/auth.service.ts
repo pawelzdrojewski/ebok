@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClientModule } from '@angular/common/http';
+import * as moment from "moment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class AuthService {
 
   session: boolean = false;
 
-  constructor( private Http: HttpClientModule) { }
+  constructor() { }
 
   login(email: any, pass: any): Observable<boolean>{
 
@@ -21,4 +21,5 @@ export class AuthService {
     this.session= false;
 
   }
+
 }

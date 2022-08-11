@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule } from '@angular/common/http';
 
 import { NavibarComponent } from './navibar/navibar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -15,6 +14,7 @@ import { ZgloszeniaComponent } from './zgloszenia/zgloszenia.component';
 import { NavibarAdminComponent } from './navibar-admin/navibar-admin.component';
 import { AdminComponent } from './admin/admin.component';
 import { OdczytyComponent } from './odczyty/odczyty.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
@@ -36,9 +36,8 @@ import { OdczytyComponent } from './odczyty/odczyty.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

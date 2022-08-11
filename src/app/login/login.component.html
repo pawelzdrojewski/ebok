@@ -3,16 +3,16 @@
   <H1 class="text-center">e-bok</H1>
   </div>
   <div style="position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 400px; height: 400px;">
-<form>
+<form [formGroup]="form">
     <!-- Email input -->
     <div class="form-outline mb-4">
-      <input type="email" id="form2Example1" class="form-control" style="border: 1px solid rgb(18, 102, 241);">
+      <input type="email" name="email" formControlName="email" id="form2Example1" class="form-control" style="border: 1px solid rgb(18, 102, 241);">
       <label class="form-label" style="background-color: white;" for="form2Example1">Adres Email</label>
     </div>
   
     <!-- Password input -->
     <div class="form-outline mb-4">
-      <input type="password" id="form2Example2" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
+      <input type="password"  name="password" formControlName="password" id="form2Example2" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
       <label class="form-label" style="background-color: white;" for="form2Example2">Hasło</label>
     </div>
   

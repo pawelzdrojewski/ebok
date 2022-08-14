@@ -18,6 +18,8 @@ export class AuthService {
     return of(true); //w prawdziwej sesji zaimplementował bym return this.http.get
   }
   logout(){
+
+
     this.session= false;
 
   }

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NavibarComponent } from './navibar/navibar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -37,7 +38,7 @@ import { AuthInterceptor } from './auth.interceptor';
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthInterceptor],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

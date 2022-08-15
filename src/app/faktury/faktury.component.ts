@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-faktury',
@@ -7,12 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FakturyComponent implements OnInit {
 
-  podglad: boolean = false;
+  dataSource: any;
 
-  constructor() { }
+  podglad: boolean = false;
+  required: string = 'faktury';
+
+  constructor(private httpService: HttpService){} //private Http: HttpService) { }
 
   ngOnInit(): void {
+
+    this.FakturyGet(this.required); 
   }
+
+  FakturyGet(text: string){  
+    this.httpService.getAllFaktury(text).subscribe(
+      (response) => { this.dataSource = response; },
+      (error) => { console.log(error); }
+      );
+     // return this.dataSource;
+  }
+
 
   show(){
     this.podglad = true;

@@ -7,7 +7,7 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Nr licznikafaktury
+            <th scope="col">Nr faktury
             <th scope="col">Data wystawienia</th>
             <th scope="col">Kwota</th>
             <th scope="col">Przeglądaj</th>
@@ -55,3 +55,28 @@
       </table>
 </div>
 <!--footer-->
+<div class="container">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nr faktury
+      <th scope="col">Data wystawienia</th>
+      <th scope="col">Kwota</th>
+      <th scope="col">Przeglądaj</th>
+      <th>Termin płatności</th>
+      <th>Status</th>
+      <th scope="col">Drukuj</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+      <tr *ngFor="let faktura of dataSource">
+        <th scope="row">{{faktura.ID}}</th>
+
+      </tr>
+ 
+  </tbody>
+
+</table>
+</div>

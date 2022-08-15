@@ -11,7 +11,7 @@ export class FakturyComponent implements OnInit {
   dataSource: any;
 
   podglad: boolean = false;
-  required: string = 'faktury';
+  required: string = '/faktury';
 
   constructor(private httpService: HttpService){} //private Http: HttpService) { }
 

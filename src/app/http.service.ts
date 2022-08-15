@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-const url = 'https://solution-it.pl/ebok/';
+const url = 'https://solution-it.pl/ebok';
 
 
 interface Faktura{

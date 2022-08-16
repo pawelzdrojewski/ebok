@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-const url = 'https://solution-it.pl/ebok';
+const url = 'https://www.solution-it.pl/ebok/';
 
 
 interface Faktura{
@@ -24,6 +24,6 @@ export class HttpService {
 
 
   getAllFaktury(text: string): Observable<any> {                
-    return this.http.get<Faktura[]>(url+text);
+    return this.http.get<any>(url+text);
   }
 }

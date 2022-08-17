@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import * as moment from "moment";
-
 
 
 @Injectable({

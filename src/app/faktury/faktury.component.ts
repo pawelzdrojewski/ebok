@@ -31,6 +31,7 @@ export class FakturyComponent implements OnInit {
 
   show(){
     this.podglad = true;
+    
     console.log(this.podglad);
   }
 

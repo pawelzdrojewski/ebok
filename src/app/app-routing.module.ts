@@ -10,15 +10,14 @@ import { OdczytyComponent } from './odczyty/odczyty.component';
 import { ZgloszeniaComponent } from './zgloszenia/zgloszenia.component';
 
 const routes: Routes = [
-  {path:'', component: LoginComponent},
-  {path:'faktury', component: FakturyComponent},
-  {path:'liczniki', component: LicznikiComponent},
-  {path:'odczyty', component: OdczytyComponent},
-  {path:'login', component: LoginComponent},
-  {path:'klient', component: KlientComponent},
-  {path:'zgloszenie', component: ZgloszeniaComponent},
-  {path:'admin', component: AdminComponent},
-  {path:'navibar-admin', component: NavibarAdminComponent}
+  {path: '', component: LoginComponent},
+  {path: 'faktury', component: FakturyComponent},
+  {path: 'liczniki', component: LicznikiComponent},
+  {path: 'odczyty', component: OdczytyComponent},
+  {path: 'klient', component: KlientComponent},
+  {path: 'zgloszenie', component: ZgloszeniaComponent},
+  {path: 'admin', component: AdminComponent},
+  {path: 'navibar-admin', component: NavibarAdminComponent}
 ];
 
 @NgModule({

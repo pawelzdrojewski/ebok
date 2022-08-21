@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
 const url = 'https://www.solution-it.pl/ebok/';
 
 
-interface Faktura{
-  ID: number;
-  Numer: string;
-  Data_wystawienia : any;
-  Kwota: number;
-  Data_platnosci: string;
-  Status: string;
+export interface Faktura{
+    ID: number;
+    Numer: string;
+    Data_wystawienia: any;
+    Kwota: number;
+    Data_platnosci: string;
+    Status: string;
 } 
 
 @Injectable({
@@ -24,6 +24,6 @@ export class HttpService {
 
 
   getAllFaktury(text: string): Observable<any> {                
-    return this.http.get<any>(url+text);
+    return this.http.get<Faktura[]>(url+text);
   }
 }

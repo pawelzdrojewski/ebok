@@ -2,59 +2,8 @@
   <div class="col-12">
     <app-navibar></app-navibar>
   </div>
-<div class="container">
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nr faktury
-            <th scope="col">Data wystawienia</th>
-            <th scope="col">Kwota</th>
-            <th scope="col">Przeglądaj</th>
-            <th>Termin płatności</th>
-            <th>Status</th>
-            <th scope="col">Drukuj</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>FA/01/2022</td>
-            <td>02.02.2022 r.</td>
-            <td>214,22 zł</td>
-            <td><button class="btn btn-primary" (click)=show() type="submit">Przelądaj</button></td>
-            <td>10.02.2022 r.</td>
-            <td class="text-success">Opłacona <i class="bi bi-check-circle"></i></td>
-            <td><button class="btn btn-primary" type="submit"><i class="bi bi-filetype-pdf"></i></button></td>
-          </tr>
-          <!--sdasdad-->
-          
-          <tr class="container" *ngIf="podglad">
-            <th scope="row"></th>
-            <td colspan="7"><div class="container">To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
-              To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd></div></td>
 
-          </tr>
-          <!--sdasdad-->
-          <tr>
-            <th scope="row">2</th>
-            <td>FA/02/2022</td>
-            <td>02.03.2022 r.</td>
-            <td>88,56 zł</td>
-            <td><button class="btn btn-primary" type="submit">Przelądaj</button></td>
-            <td>10.03.2022 r.</td>
-            <td class="text-warning">Do zapłaty <i class="bi bi-exclamation-circle"></i></td>
-            <td><button class="btn btn-primary" (click)=show() type="submit"><i class="bi bi-filetype-pdf"></i></button></td>
-          </tr>
-            <tr class="container" *ngIf="podglad">
-              <th scope="row"></th>
-              <td colspan="7"><div class="container">To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
-                To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd></div></td>
-            </tr>
-        </tbody>
-      </table>
-</div>
-<!--footer-->
+  
 <div class="container">
 <table class="table table-striped">
   <thead>
@@ -68,12 +17,24 @@
       <th>Status</th>
       <th scope="col">Drukuj</th>
     </tr>
-  </thead>
+  </thead>  
   
   <tbody>
-      <tr *ngFor="let faktura of dataSource">
-        <th scope="row">{{faktura.ID}}</th>
-
+      <tr *ngFor="let faktura of dataSource; index as i">
+        <td scope="col">{{i+1}}</td>
+        <td scope="col">{{faktura.Numer}}</td>
+        <td scope="col">{{faktura.Data_wystawienia}}</td>
+        <td scope="col">{{faktura.Kwota}} zł</td>
+        <td scope="col"><button id="{{faktura.Numer}}"  (click)=show() class="btn btn-primary" type="submit">Przelądaj</button></td>
+        <td scope="col">{{faktura.Data_platnosci}}</td>
+        <td scope="col" *ngIf="faktura.Status === 'Do zapłaty'"><div class="text-warning" >{{faktura.Status+' '}}<i class="bi bi-exclamation-circle"></i></div></td>
+        <td scope="col" *ngIf="faktura.Status === 'Opłacona'"><div class="text-success" >{{faktura.Status+' '}}<i class="bi bi-check-circle"></i></div></td>
+        <td><button class="btn btn-primary" type="submit"><i class="bi bi-filetype-pdf"></i></button></td>
+      </tr>
+      <tr class="container" *ngIf="podglad">
+        <th scope="row"></th>
+        <td colspan="7"><div class="container">To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+          To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd></div></td>
       </tr>
  
   </tbody>

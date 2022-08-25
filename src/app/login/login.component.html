@@ -6,14 +6,16 @@
 <form [formGroup]="userData">
     <!-- Email input -->
     <div class="form-outline mb-4">
-      <input type="email" name="email" formControlName="email" id="form2Example1" class="form-control" style="border: 1px solid rgb(18, 102, 241);">
       <label class="form-label" style="background-color: white;" for="form2Example1">Adres Email</label>
+      <input type="email" name="email" formControlName="email" id="form2Example1" class="form-control" style="border: 1px solid rgb(18, 102, 241);">
+
     </div>
   
     <!-- Password input -->
     <div class="form-outline mb-4">
+      <label class="form-label" style="background-color: white;" for="form2Example2">Hasło</label> <!---przeniosłem z pod input i zmieniło się zachowanie-->
       <input type="password"  name="password" formControlName="password" id="form2Example2" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
-      <label class="form-label" style="background-color: white;" for="form2Example2">Hasło</label>
+
     </div>
   
     <!-- 2 column grid layout for inline styling -->

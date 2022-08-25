@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -10,17 +10,22 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  userData: FormGroup;
+  userData: any;
   token: any;
 
   constructor(private Auth: AuthService,
               private router: Router,
-              private fb: FormBuilder) {
+             private fb: FormBuilder) {
 
-      this.userData = this.fb.group({
-        email: ['',Validators.required],
-        password: ['',Validators.required]
-      });
+      // this.userData = new FormGroup({
+      //   email: new FormControl(['',Validators.required]),
+      //   password: new FormControl(['',Validators.required]),
+      // });
+
+     this.userData = this.fb.group({
+       email: ['',Validators.required],
+       password: ['',Validators.required]
+     });
             
   }
 
@@ -31,18 +36,16 @@ export class LoginComponent implements OnInit {
 
   in(){
     if (this.userData.value.email && this.userData.value.password) {
-      localStorage.setItem('token','xhja787');
-
-
+     // localStorage.setItem('token','xhja787');
       this.Auth.login(this.userData).subscribe(
-        (response) => {
-           this.userData = response;
-           if (this.Auth.session){
-            // console.log('email '+ this.userData.value.email + ', password ' + this.userData.value.password);
-            // console.log(localStorage.getItem('token'));
-             }
-           },
-        (error) => { console.log(error); }
+        (response) => { 
+          console.log('Token: '+response);
+          localStorage.setItem('token',response);
+          //this.userData = response  
+
+        },
+        (error) => console.log(error),
+      
       )
       this.router.navigate(['/faktury']);
     }

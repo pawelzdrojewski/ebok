@@ -16,17 +16,12 @@ export class AuthService {
 
 
   login(userData: FormGroup): Observable<any>{
-
-   // console.log('From AuthServive: email '+ login + ', password ' + pass);
-    this.session= true;
-    return this.http.post(url+'auth',userData.value, {responseType: 'text'} );
-    //return of(true); //w prawdziwej sesji zaimplementował bym return this.http.get
+    return this.http.post(url+'auth?email=pawez&password=start', userData.value);
   }
+
+
   logout(){
-
-
     this.session= false;
-
   }
 
 }

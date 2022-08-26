@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Token } from '@angular/compiler';
 
 const url = 'https://solution-it.pl/ebok/'; 
 
@@ -16,12 +17,18 @@ export class AuthService {
 
 
   login(userData: FormGroup): Observable<any>{
-    return this.http.post(url+'auth?email=pawez&password=start', userData.value);
+    console.log("z auth.service userData.value = "+userData.value.email);
+    return this.http.post(url+'auth?email='+userData.value.email+'&password='+userData.value.password, userData.value);
+    
   }
 
 
   logout(){
     this.session= false;
+    
+    localStorage.clear();
+    sessionStorage.clear();
+
   }
 
 }

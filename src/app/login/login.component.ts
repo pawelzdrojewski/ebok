@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   userData: any;
   token: any;
+  info = false;
 
   constructor(private Auth: AuthService,
               private router: Router,
@@ -36,18 +37,25 @@ export class LoginComponent implements OnInit {
 
   in(){
     if (this.userData.value.email && this.userData.value.password) {
-     // localStorage.setItem('token','xhja787');
       this.Auth.login(this.userData).subscribe(
         (response) => { 
-          console.log('Token: '+response);
-          localStorage.setItem('token',response);
-          //this.userData = response  
-
+          if (response =='Nieprawidłowy login lub hasło.') {
+            this.info=true;
+            localStorage.clear();
+            sessionStorage.clear();
+            this.router.navigate(['/']);    
+          }
+          else{
+            console.log('Token: '+response);
+           // localStorage.setItem('Token', response);
+            sessionStorage.setItem('Token', response);
+            this.router.navigate(['/faktury']);
+          }
         },
         (error) => console.log(error),
       
       )
-      this.router.navigate(['/faktury']);
+      
     }
   }
 

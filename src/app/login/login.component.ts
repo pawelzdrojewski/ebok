@@ -8,6 +8,8 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+
 export class LoginComponent implements OnInit {
 
   userData: any;
@@ -19,12 +21,12 @@ export class LoginComponent implements OnInit {
              private fb: FormBuilder) {
 
       // this.userData = new FormGroup({
-      //   email: new FormControl(['',Validators.required]),
+      //   login: new FormControl(['',Validators.required]),
       //   password: new FormControl(['',Validators.required]),
       // });
 
      this.userData = this.fb.group({
-       email: ['',Validators.required],
+       login: ['',Validators.required],
        password: ['',Validators.required]
      });
             
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   in(){
-    if (this.userData.value.email && this.userData.value.password) {
+    if (this.userData.value.login && this.userData.value.password) {
       this.Auth.login(this.userData).subscribe(
         (response) => { 
           if (response =='Nieprawidłowy login lub hasło.') {
@@ -60,3 +62,4 @@ export class LoginComponent implements OnInit {
   }
 
 }
+

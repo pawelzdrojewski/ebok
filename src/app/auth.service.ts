@@ -31,6 +31,12 @@ export class AuthService {
 
   logout(){
     this.session= false;  
+    localStorage.removeItem('Token');
+    sessionStorage.removeItem('Token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    sessionStorage.removeItem('id_token');
+    sessionStorage.removeItem('expires_at');
     localStorage.clear();
     sessionStorage.clear();
   }

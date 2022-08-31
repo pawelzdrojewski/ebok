@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     
   }
 
-  in(){
+  login(){
     if (this.userData.value.login && this.userData.value.password) {
       this.Auth.login(this.userData).subscribe(
         (response) => { 

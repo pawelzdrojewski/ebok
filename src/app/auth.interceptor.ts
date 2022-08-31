@@ -10,7 +10,6 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const API_KEY = '123456';
-    console.log('123456');
     return next.handle(request.clone({ setHeaders: { API_KEY } }));
 
   }

@@ -25,8 +25,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(userData: FormGroup): Observable<any>{
-    console.log("z auth.service userData.value = "+userData.value.login);
-    return this.http.post<Users[]>(url+'auth?email='+userData.value.login+'&password='+userData.value.password, userData.value);
+    return this.http.post(url+'auth?email='+userData.value.login+'&password='+userData.value.password, userData.value);
   }
 
   logout(){

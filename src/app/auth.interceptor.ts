@@ -2,30 +2,41 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Token } from '@angular/compiler';
+import { AuthService } from './auth.service';
+import { JwtHelperService } from "@auth0/angular-jwt";
+import { Router } from '@angular/router';
+
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private Auth: AuthService, private router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-<<<<<<< HEAD
+ // if (this.Auth.verfiSession(localStorage.getItem('Token'))) 
+
+  const  rawToken: any  = localStorage.getItem('Token');
+    console.log("getToken "+ rawToken)
+     const helper = new JwtHelperService();
+    // const decodedToken = helper.decodeToken(rawToken);
+    //  console.log("decodedToken "+ decodedToken);
+    //  const expirationDate = helper.getTokenExpirationDate(rawToken);
+    //  console.log("expirationDate "+ expirationDate);
+    const isExpired = helper.isTokenExpired(rawToken);
+
+    if (!isExpired){
+
+    }else {
+      console.log("Sesja wygasła");
+      this.router.navigate(['/']);
+   }
+   // console.log("isExpired "+ isExpired);
+
+
+
+
     const API_KEY = '123456';
     return next.handle(request.clone({ setHeaders: { API_KEY } }));
-=======
-    const API_KEY2 = '123456';
-    const API_KEY = localStorage.getItem("Token");
->>>>>>> 25c92a564f079608f1ff6de88734556b6ea1ea46
-
-
-    if (API_KEY) {
-      const cloned = request.clone({headers: request.headers.set("Authorization", "Bearer " + API_KEY)});
-      console.log('API_KEY: '+ API_KEY );
-      return next.handle(cloned);
-    }
-    else {
-      return next.handle(request);
-    }
   }
 }

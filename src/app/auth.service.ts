@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import * as moment from "moment";
+
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 const url = 'https://solution-it.pl/ebok/'; 
 
@@ -20,16 +23,41 @@ export interface Users{
 export class AuthService {
 
   session: boolean = false;
+  authResult: any;
 
   constructor(private http: HttpClient) { }
 
   login(userData: FormGroup): Observable<any>{
-<<<<<<< HEAD
-    return this.http.post(url+'auth?email='+userData.value.login+'&password='+userData.value.password, userData.value);
-=======
-    console.log("z auth.service userData.value = "+userData.value.login);
-    return this.http.post<Users[]>(url+'auth?email='+userData.value.login+'&password='+userData.value.password, userData.value); //???.do(res => this.setSession).shareReplay();
->>>>>>> 25c92a564f079608f1ff6de88734556b6ea1ea46
+    return this.http.post<Users[]>(url+'auth?email='+userData.value.login+'&password='+userData.value.password, userData.value);
+  }
+
+
+  setSession(authResult: any) {
+    this.authResult = authResult;
+    //const expiresAt = moment().clone().add(this.authResult.expiresIn);
+   // console.log("this.authResult.expiresIn: "+this.authResult.expiresIn);
+    localStorage.setItem('Token', this.authResult);
+    sessionStorage.setItem('Token', this.authResult);
+    //localStorage.setItem('id_token', this.authResult.Token);?????
+    //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+
+    this.verfiSession( localStorage.getItem('Token'));
+  }
+
+  verfiSession(rawToken: any){
+    
+       // const rawToken = JSON.parse(localStorage.getItem('Token') || '{}'); //tesowanie czy token nie jest pusty
+
+    //console.log("getToken "+ rawToken)
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(rawToken);
+     //console.log("decodedToken "+ decodedToken);
+     const expirationDate = helper.getTokenExpirationDate(rawToken);
+     //console.log("expirationDate "+ expirationDate);
+    const isExpired = helper.isTokenExpired(rawToken);
+    //console.log("isExpired "+ isExpired);
+   
+
   }
 
   logout(){

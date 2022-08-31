@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-odczyty',
@@ -9,9 +10,15 @@ export class OdczytyComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor(private Auth: AuthService) { 
+
+  }
 
   ngOnInit(): void {
+
+   // this.Auth.verfiSession( localStorage.getItem('Token'));
   }
+
+
 
 }

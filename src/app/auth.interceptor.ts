@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Token } from '@angular/compiler';
 import { AuthService } from './auth.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from '@angular/router';
+import { map, tap } from 'rxjs/operators';
 
 
 @Injectable()
@@ -34,8 +35,25 @@ export class AuthInterceptor implements HttpInterceptor {
  // const API_KEY= '12345678';
   // request = request.clone({ setHeaders: {API_KEY} })
    //request = request.clone({ setHeaders: { Authorization: `${rawToken}` } })
-   return next.handle(request);
-
-
+   return next.handle(request).pipe(
+    tap({
+      next: (event) => {
+        if (event instanceof HttpResponse) {
+          if(event.status == 401) {
+            alert('Nieautoryzowany dostęp!!!')
+          }
+        }
+        return event;
+      },
+      error: (error) => {
+        if(error.status == 401) {
+          alert('Nieautoryzowany dostęp!!!')
+        }
+        if(error.status == 404) {
+          alert('Strony nie odnaleziono!!!');
+        }
+      }
+    })
+  );
   }
 }

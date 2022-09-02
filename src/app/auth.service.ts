@@ -34,10 +34,11 @@ export class AuthService {
 
   setSession(authResult: any) {
     this.authResult = authResult;
+   // this.authResult.ge]
     //const expiresAt = moment().clone().add(this.authResult.expiresIn);
    // console.log("this.authResult.expiresIn: "+this.authResult.expiresIn);
-    localStorage.setItem('Token', this.authResult);
-    sessionStorage.setItem('Token', this.authResult);
+   // localStorage.setItem('Token', this.authResult);
+   // sessionStorage.setItem('Token', this.authResult);
     //localStorage.setItem('id_token', this.authResult.Token);?????
     //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
 

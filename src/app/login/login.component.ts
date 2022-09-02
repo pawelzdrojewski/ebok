@@ -36,15 +36,25 @@ export class LoginComponent implements OnInit {
     if (this.userData.value.login && this.userData.value.password) {
       this.Auth.login(this.userData).subscribe(
         (response) => { 
-          if (response =='Nieprawidłowy login lub hasło.') {
-            this.info=true;
-            this.router.navigate(['/']);    
-          }
-          else{
+          if (response) {
             this.Auth.setSession(response);
             this.router.navigate(['/faktury']);
           }
+          else{
+            this.info=true;
+            this.router.navigate(['/']); 
+          }
         },
+        // (response) => { 
+        //   if (response =='Nieprawidłowy login lub hasło.') {
+        //     this.info=true;
+        //     this.router.navigate(['/']);    
+        //   }                                                              //POPRAWNE
+        //   else{
+        //     this.Auth.setSession(response);
+        //     this.router.navigate(['/faktury']);
+        //   }
+        // },
         (error) => console.log(error),
       
       )

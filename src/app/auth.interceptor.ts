@@ -16,23 +16,23 @@ export class AuthInterceptor implements HttpInterceptor {
 
  // if (this.Auth.verfiSession(localStorage.getItem('Token'))) 
 
-  const  rawToken: any  = localStorage.getItem('Token');
-    console.log("getToken "+ rawToken)
-     const helper = new JwtHelperService();
+ // const  rawToken: any  = localStorage.getItem('Token');
+  //  console.log("getToken "+ rawToken)
+ //    const helper = new JwtHelperService();
     // const decodedToken = helper.decodeToken(rawToken);
     //  console.log("decodedToken "+ decodedToken);
     //  const expirationDate = helper.getTokenExpirationDate(rawToken);
     //  console.log("expirationDate "+ expirationDate);
-    const isExpired = helper.isTokenExpired(rawToken);
+  //  const isExpired = helper.isTokenExpired(rawToken);
 
-    if (!isExpired){
+  //  if (!isExpired){
 
-    }else {
-      console.log("Sesja wygasła");
-      this.router.navigate(['/']);
-   }
-  const API_KEY= '12345678';
-   request = request.clone({ setHeaders: {API_KEY} })
+  //  }else {
+  //    console.log("Sesja wygasła");
+ //     this.router.navigate(['/']);
+ //  }
+ // const API_KEY= '12345678';
+  // request = request.clone({ setHeaders: {API_KEY} })
    //request = request.clone({ setHeaders: { Authorization: `${rawToken}` } })
    return next.handle(request);
 

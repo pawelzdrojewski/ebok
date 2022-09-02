@@ -31,12 +31,11 @@ export class AuthInterceptor implements HttpInterceptor {
       console.log("Sesja wygasła");
       this.router.navigate(['/']);
    }
-   // console.log("isExpired "+ isExpired);
+  const API_KEY= '12345678';
+   request = request.clone({ setHeaders: {API_KEY} })
+   //request = request.clone({ setHeaders: { Authorization: `${rawToken}` } })
+   return next.handle(request);
 
 
-
-
-    const API_KEY = '123456';
-    return next.handle(request.clone({ setHeaders: { API_KEY } }));
   }
 }

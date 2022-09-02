@@ -41,7 +41,7 @@ export class AuthService {
     //localStorage.setItem('id_token', this.authResult.Token);?????
     //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
 
-    this.verfiSession( localStorage.getItem('Token'));
+   // this.verfiSession( localStorage.getItem('Token'));
   }
 
   verfiSession(rawToken: any){

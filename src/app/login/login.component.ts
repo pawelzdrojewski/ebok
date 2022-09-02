@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login(){
+    localStorage.removeItem("Token");
+    sessionStorage.removeItem("Token");
     if (this.userData.value.login && this.userData.value.password) {
       this.Auth.login(this.userData).subscribe(
         (response) => { 

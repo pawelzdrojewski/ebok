@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
 const url = 'https://www.solution-it.pl/ebok/';
+
+// let myHeaders = new HttpHeaders();
+//   myHeaders = myHeaders.set("Access-Key", "<sekret>")
 
 
 export interface Faktura{
@@ -20,10 +23,12 @@ export interface Faktura{
 })
 export class HttpService {
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {
+    
+   }
 
   getAllFaktury(text: string): Observable<any> {                
+   // return this.http.get<Faktura[]>(url+text, {headers: myHeaders});
     return this.http.get<Faktura[]>(url+text);
   }
 }

@@ -34,15 +34,17 @@ export class AuthService {
 
   setSession(authResult: any) {
     this.authResult = authResult;
+   // this.authResult.  ('API_KEY');
+    //console.log("API_KEY: "+A)
    // this.authResult.ge]
-    //const expiresAt = moment().clone().add(this.authResult.expiresIn);
+    const expiresAt = moment().clone().add(this.authResult.expiresIn);
    // console.log("this.authResult.expiresIn: "+this.authResult.expiresIn);
-   // localStorage.setItem('Token', this.authResult);
-   // sessionStorage.setItem('Token', this.authResult);
-    //localStorage.setItem('id_token', this.authResult.Token);?????
-    //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+    localStorage.setItem('Bearer', this.authResult);
+    sessionStorage.setItem('Bearer', this.authResult);
+   // localStorage.setItem('id_token', this.authResult.Token);?????
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
 
-   // this.verfiSession( localStorage.getItem('Token'));
+    this.verfiSession( localStorage.getItem('Bearer'));
   }
 
   verfiSession(rawToken: any){
@@ -63,13 +65,13 @@ export class AuthService {
 
   logout(){
     this.session= false;  
-    localStorage.removeItem('Token');
-    sessionStorage.removeItem('Token');
+    localStorage.removeItem('Bearer');
+    sessionStorage.removeItem('Bearer');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     sessionStorage.removeItem('id_token');
     sessionStorage.removeItem('expires_at');
-    //localStorage.clear();
-    //sessionStorage.clear();
+    localStorage.clear();
+    sessionStorage.clear();
   }
 }

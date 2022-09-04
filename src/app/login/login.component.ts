@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -31,8 +32,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login(){
-    localStorage.removeItem("Token");
-    sessionStorage.removeItem("Token");
+    localStorage.removeItem("Bearer");
+    localStorage.removeItem("expires_at");
+    sessionStorage.removeItem("Barer");
     if (this.userData.value.login && this.userData.value.password) {
       this.Auth.login(this.userData).subscribe(
         (response) => { 
@@ -45,10 +47,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/']); 
           }
         },
-        (error) => console.log(error),
-      
+        (error) => console.log(error),      
       )
-      
     }
   }
 }

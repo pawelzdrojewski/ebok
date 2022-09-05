@@ -24,10 +24,12 @@ export class AuthService {
 
   session: boolean = false;
   authResult: any;
+  klient?:  string;
 
   constructor(private http: HttpClient) { }
 
   login(userData: FormGroup): Observable<any>{
+    this.klient = userData.value.login;
     return this.http.post<Users[]>(url+'auth?email='+userData.value.login+'&password='+userData.value.password, userData.value);
   }
 

@@ -14,9 +14,10 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   userData: any;
-  token: any;
+  //token: any;
   info = false;
-  authResult: any;
+ // authResult: any;
+  
 
   constructor(private Auth: AuthService,
               private router: Router,

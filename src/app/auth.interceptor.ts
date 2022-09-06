@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
   //   //  console.log("expirationDate "+ expirationDate);
      const isExpired = helper.isTokenExpired(Authorization);
  if (Authorization){
-    if (!isExpired){
+    if (!isExpired || null){
     }else {
       console.log("Sesja wygasła");
       this.Auth.logout();

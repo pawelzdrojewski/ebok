@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 const url = 'https://www.solution-it.pl/ebok/';

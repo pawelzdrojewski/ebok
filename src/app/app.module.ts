@@ -18,6 +18,7 @@ import { NavibarAdminComponent } from './navibar-admin/navibar-admin.component';
 import { AdminComponent } from './admin/admin.component';
 import { OdczytyComponent } from './odczyty/odczyty.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AuthInterceptor } from './auth.interceptor';
     NavibarAdminComponent,
     AdminComponent,
     OdczytyComponent,
+    RegisterComponent,
     
   ],
   imports: [

@@ -7,6 +7,7 @@ import { LicznikiComponent } from './liczniki/liczniki.component';
 import { LoginComponent } from './login/login.component';
 import { NavibarAdminComponent } from './navibar-admin/navibar-admin.component';
 import { OdczytyComponent } from './odczyty/odczyty.component';
+import { RegisterComponent } from './register/register.component';
 import { ZgloszeniaComponent } from './zgloszenia/zgloszenia.component';
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'klient', component: KlientComponent},
   {path: 'zgloszenie', component: ZgloszeniaComponent},
   {path: 'admin', component: AdminComponent},
-  {path: 'navibar-admin', component: NavibarAdminComponent}
+  {path: 'navibar-admin', component: NavibarAdminComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 <div style=" position: absolute; margin: auto; top: -260px; right: 0; bottom: 0; left: 0; width: 400px; height: 400px;">
-      <form  [formGroup]="myFormModel" (ngSubmit)="onSubmit()">
+      <form  [formGroup]="myFormModel" (ngSubmit)="onSubmit()" >
         <div class="text-center mb-3">
           <h3>Zarejestruj się:</h3>
 
@@ -7,8 +7,8 @@
   
         <!-- Name input -->
         <div class="form-outline mb-4">
-          <label class="form-label">Name</label>
-          <input type="text" formControlName="registerName" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
+          <label class="form-label">Imię i Nazwisko</label>
+          <input type="text" formControlName="FirstNameLastName" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
         </div>
   
         <!-- Username input -->
@@ -28,6 +28,7 @@
           <div class="form-outline mb-4">
             <label class="form-label">Password</label>
             <input type="password" formControlName="registerPassword" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
+            <span class="error" [hidden]="!myFormModel.hasError('minlength',['passwordsGroup', 'password'])">Hasło jest za krótkie</span>
           </div>
           <!-- Repeat Password input -->
           <div class="form-outline mb-4">

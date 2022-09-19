@@ -19,6 +19,7 @@ import { AdminComponent } from './admin/admin.component';
 import { OdczytyComponent } from './odczyty/odczyty.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { RegisterComponent } from './register/register.component';
+import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { RegisterComponent } from './register/register.component';
     AdminComponent,
     OdczytyComponent,
     RegisterComponent,
+    SpinnerOverlayComponent,
     
   ],
   imports: [

@@ -5,10 +5,12 @@ import { FakturyComponent } from './faktury/faktury.component';
 import { KlientComponent } from './klient/klient.component';
 import { LicznikiComponent } from './liczniki/liczniki.component';
 import { LoginComponent } from './login/login.component';
+import { ZgloszeniaComponent } from './zgloszenia/zgloszenia.component';
 import { NavibarAdminComponent } from './navibar-admin/navibar-admin.component';
 import { OdczytyComponent } from './odczyty/odczyty.component';
 import { RegisterComponent } from './register/register.component';
-import { ZgloszeniaComponent } from './zgloszenia/zgloszenia.component';
+import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
+
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -19,7 +21,8 @@ const routes: Routes = [
   {path: 'zgloszenie', component: ZgloszeniaComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'navibar-admin', component: NavibarAdminComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'spiner', component: SpinnerOverlayComponent}
 ];
 
 @NgModule({

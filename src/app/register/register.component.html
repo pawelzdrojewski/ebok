@@ -27,8 +27,8 @@
         <div formGroupName="passwordsGroup">
           <div class="form-outline mb-4">
             <label class="form-label">Password</label>
-            <input type="password" formControlName="registerPassword" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
-            <span class="error" [hidden]="!myFormModel.hasError('minlength',['passwordsGroup', 'password'])">Hasło jest za krótkie</span>
+            <input id="registerPassword" type="password" formControlName="registerPassword" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
+
           </div>
           <!-- Repeat Password input -->
           <div class="form-outline mb-4">

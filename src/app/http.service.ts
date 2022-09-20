@@ -38,7 +38,5 @@ export class HttpService {
     // console.log(userData.value);
     console.log(userData.value);
      return this.http.post(url+'add', userData.value);
-
-     
    }
 }

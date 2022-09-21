@@ -15,6 +15,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> { 
 
+  //  let headers  = request.headers
+    
+  //  console.log('Interceptor request.headers '+ headers.getAll('Authorization'));
+
   const  Authorization: any  = localStorage.getItem('Bearer');
    // console.log("getToken "+ rawToken)
      const helper = new JwtHelperService();
@@ -30,33 +34,37 @@ export class AuthInterceptor implements HttpInterceptor {
       this.Auth.logout();
       this.router.navigate(['/']);
    }
-   return next.handle(request.clone({ setHeaders: {Authorization} }));
+   return next.handle(request.clone({  setHeaders: {Authorization} }));
   }
  else{
  // request = request.clone({ setHeaders: {API_KEY} })}
    //request = request.clone({ setHeaders: { Authorization: `${rawToken}` } })
-   return next.handle(request)
+   return next.handle(request).pipe(
+    tap({
+      next: (event) => {
+        if (event instanceof HttpResponse) {
+          if(event.status == 401) {
+          //  alert('Nieautoryzowany dostęp!!!')
+          }
+          if(event.status == 403) {
+            this.router.navigate(['/']); 
+            //alert('Nieautoryzowany dostęp!!!')
+          }
+        }
+        return event;
+      },
+      error: (error) => {
+        if(error.status == 401) {
+        //  alert('Nieautoryzowany dostęp!!!')
+        }
+        if(error.status == 404) {
+          alert('Strony nie odnaleziono!!!');
+        }
+      }
+    })
+  );
  }
 
-  //  .pipe(  
-  //   tap({
-  //     next: (event) => {
-  //       if (event instanceof HttpResponse) {
-  //         if(event.status == 401) {
-  //           alert('Nieautoryzowany dostęp!!!')
-  //         }
-  //       }
-  //       return event;
-  //     },
-  //     error: (error) => {
-  //       if(error.status == 401) {
-  //         alert('Nieautoryzowany dostęp!!!')
-  //       }
-  //       if(error.status == 404) {
-  //         alert('Strony nie odnaleziono!!!');
-  //       }
-  //     }
-  //   })
-  // );
+  
   }
 }

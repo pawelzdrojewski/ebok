@@ -15,6 +15,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> { 
 
+   // console.log('REQUEST HEADERS: ', request.headers.get('bearer')); 
+
   const  Authorization: any  = localStorage.getItem('Bearer');
    // console.log("getToken "+ rawToken)
      const helper = new JwtHelperService();

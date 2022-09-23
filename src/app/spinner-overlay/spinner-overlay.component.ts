@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { LoadService } from '../load.service';
 
 @Component({
   selector: 'app-spinner-overlay',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpinnerOverlayComponent implements OnInit {
 
-  constructor() { }
+  isLoading: Subject<boolean> = this.loaderService.isLoading;
+
+  constructor(private loaderService: LoadService) { }
 
   ngOnInit(): void {
   }

@@ -7,10 +7,13 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from '@angular/router';
 import { map, tap } from 'rxjs/operators';
 
+//let info401 = false;
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-
+  
+  info401 = false;
+  
   constructor(private Auth: AuthService, private router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> { 
@@ -40,6 +43,7 @@ export class AuthInterceptor implements HttpInterceptor {
       next: (event) => {
         if (event instanceof HttpResponse) {
           if(event.status == 401) {
+            this.info401  = true;
           //  alert('Nieautoryzowany dostęp!!!')
           }
           if(event.status == 403) {

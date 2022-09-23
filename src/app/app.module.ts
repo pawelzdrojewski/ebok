@@ -20,6 +20,7 @@ import { OdczytyComponent } from './odczyty/odczyty.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
+import { LoaderInterceptor } from './loader.interceptor';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+              { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

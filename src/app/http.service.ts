@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthInterceptor } from './auth.interceptor';
 import { FormGroup } from '@angular/forms';
-
 
 const url = 'https://www.solution-it.pl/ebok/';
 
@@ -29,7 +27,10 @@ export class HttpService {
     
    }
 
-  getAllFaktury(text: string): Observable<any> {                
+   
+
+  getAllFaktury(text: string): Observable<any> {   
+               
    // return this.http.get<Faktura[]>(url+text, {headers: myHeaders});
     return this.http.get<Faktura[]>(url+text);
   }
@@ -39,4 +40,5 @@ export class HttpService {
     console.log(userData.value);
      return this.http.post(url+'add', userData.value);
    }
+
 }

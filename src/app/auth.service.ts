@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import * as moment from "moment";
+import { AuthInterceptor } from './auth.interceptor';
 
 import { JwtHelperService } from "@auth0/angular-jwt";
 
@@ -75,5 +76,8 @@ export class AuthService {
     sessionStorage.removeItem('expires_at');
     localStorage.clear();
     sessionStorage.clear();
+  }
+  setError(){
+    
   }
 }

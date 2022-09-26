@@ -312,7 +312,9 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- navibar-->
 
-
+<div *ngIf="isLoading ">
+  <app-spinner-overlay></app-spinner-overlay>
+</div>
 
 
 

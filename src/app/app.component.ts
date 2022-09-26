@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
+import { LoadService } from './load.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'e-bok';
+
+
+  
+
+  constructor(private loadService: LoadService) { 
+    
+  }
+
+  isLoading: Subject<boolean> = this.loadService.isLoading;
+
 }

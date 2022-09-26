@@ -23,6 +23,7 @@ export class LoadService {
     console.log("show()");
    // prompt("Trwa ładowannie danych ...");
     return this.isLoading.next(true);
+    
    }
 
    hiden(){

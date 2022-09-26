@@ -13,13 +13,13 @@ import { finalize } from 'rxjs/operators';
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
 
-  constructor(private loadServis: LoadService) {}
+  constructor(private loadService: LoadService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-      this.loadServis.show();
+      this.loadService.show();
       
 
     return next.handle(request).pipe(
-            finalize(()=> this.loadServis.hiden()));
+            finalize(()=> this.loadService.hiden()));
   }
 }

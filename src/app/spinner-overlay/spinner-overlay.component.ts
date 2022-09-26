@@ -9,9 +9,9 @@ import { LoadService } from '../load.service';
 })
 export class SpinnerOverlayComponent implements OnInit {
 
-  isLoading: Subject<boolean> = this.loaderService.isLoading;
+  isLoading: Subject<boolean> = this.loadService.isLoading;
 
-  constructor(private loaderService: LoadService) { }
+  constructor(private loadService: LoadService) { }
 
   ngOnInit(): void {
   }

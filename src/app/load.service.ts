@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { interval, Subject } from 'rxjs';                                           
+import { Injectable } from '@angular/core';                                           
 import { BehaviorSubject} from 'rxjs/internal/BehaviorSubject';           // poczytać
 import { take } from 'rxjs/operators';                             // poczytać
 
@@ -8,9 +7,9 @@ import { take } from 'rxjs/operators';                             // poczytać
 })
 
 export class LoadService {
- // private _loading = new BehaviorSubject<boolean>(false); //???
 
-  isLoading = new Subject<boolean>();
+  isLoading = new BehaviorSubject<boolean>(false);
+  public readonly _loading = this.isLoading.asObservable();
 
   constructor() { }
 

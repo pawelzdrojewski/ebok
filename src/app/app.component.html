@@ -312,10 +312,11 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- navibar-->
 
-<div *ngIf="isLoading ">
+<!-- async jest bardzo ważny bez niego app-spiner nie kończy działąnia -->
+
+<div *ngIf="_loading | async"> 
   <app-spinner-overlay></app-spinner-overlay>
 </div>
-
 
 
 

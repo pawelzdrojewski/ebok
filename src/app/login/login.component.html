@@ -3,7 +3,7 @@
   <H1 class="text-center">e-bok</H1>
   </div>
   <div style="position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 400px; height: 400px;">
-<form [formGroup]="userData">
+<form [formGroup]="userData" (ngSubmit)="login()">
   <h3 class="text-danger" *ngIf="info">Nieprawidłowy login lub hasło.</h3>
     <!-- Email input -->
     <div class="form-outline mb-4">
@@ -15,7 +15,7 @@
     <!-- Password input -->
     <div class="form-outline mb-4">
       <label class="form-label" style="background-color: white;" for="form2Example2">Hasło</label> <!---przeniosłem z pod input i zmieniło się zachowanie-->
-      <input type="password"  name="password" formControlName="password" id="form2Example2" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
+      <input name="password" formControlName="password" id="form2Example2" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
 
     </div>
   
@@ -24,7 +24,7 @@
       <div class="col d-flex justify-content-center">
         <!-- Checkbox -->
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
+          <input  type="password" class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
           <label class="form-check-label" for="form2Example34"> Zapamiętaj mnie </label>
         </div>
       </div>
@@ -36,7 +36,7 @@
     </div>
   
     <!-- Submit button -->
-    <button type="button" (click)=login() class="btn btn-primary btn-block mb-4">Zaloguj się</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Zaloguj się</button>
   
     <!-- Register buttons -->
     <div class="text-center">
@@ -49,7 +49,7 @@
       <button type="button" class="btn btn-primary btn-floating mx-1">
         <i class="fab fa-google"></i>
       </button>
-  
+   
       <button type="button" class="btn btn-primary btn-floating mx-1">
         <i class="fab fa-twitter"></i>
       </button>

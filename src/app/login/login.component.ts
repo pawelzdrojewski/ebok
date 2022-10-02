@@ -56,6 +56,11 @@ export class LoginComponent implements OnInit {
       )
     }
   }
+
+  save(event:any) {
+    console.log("You entered: ", event.target.value);
+  }
+  
 }
 
 

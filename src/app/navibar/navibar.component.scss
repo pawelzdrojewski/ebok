@@ -1,3 +1,26 @@
 nav{
     margin-bottom: 2%;
 }
+
+.notification {
+    //background-color: #f4f4f4;
+    height: 60px;
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+  }
+  
+  .badge {
+    font-size: 12px;
+    position: absolute;
+    left: 55%;
+    top: 20%;
+    border-radius: 50px;
+    display: grid;   
+    color: #f4f4f4;
+  }
+
+  

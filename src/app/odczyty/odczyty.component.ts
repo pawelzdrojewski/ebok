@@ -16,7 +16,6 @@ export class OdczytyComponent implements OnInit {
 
   ngOnInit(): void {
 
-   // this.Auth.verfiSession( localStorage.getItem('Token'));
   }
 
 

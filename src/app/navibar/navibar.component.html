@@ -50,18 +50,17 @@
 
       </ul>
       <!-- Left links -->
-      
+      <button type="button" class="btn btn-link px-7 me-7">
+        <i class="bi bi-bell-fill fa-2x" alt="powiadomienia"></i>
+      </button>
       <button type="button" class="btn btn-link px-3 me-2">
         Licznik nr: 000074321 Rynek Bednarski 1
       </button> 
-      <button type="button" class="btn btn-link px-3 me-2">
-        <a class="nav-link" routerLink="klient" routerLinkActive="active">{{this.Auth.klient}}</a>
-      </button>
         <button type="button" (click)=out() class="btn btn-primary me-3">
           Wyloguj
         </button>
         <button type="button" class="btn btn-link px-7 me-7"><i class="fas fa-universal-access fa-3x" alt="ułatwianie dostępu"></i></button>
-
+        app-powiadomienia
   
     </div>
     <!-- Collapsible wrapper -->

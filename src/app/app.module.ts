@@ -21,6 +21,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { LoaderInterceptor } from './loader.interceptor';
+import { PowiadomieniaComponent } from './powiadomienia/powiadomienia.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { LoaderInterceptor } from './loader.interceptor';
     OdczytyComponent,
     RegisterComponent,
     SpinnerOverlayComponent,
+    PowiadomieniaComponent,
     
   ],
   imports: [

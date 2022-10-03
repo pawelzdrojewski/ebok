@@ -8,14 +8,15 @@ import { take } from 'rxjs/operators';                             // poczytać
 
 export class LoadService {
 
+
   isLoading = new BehaviorSubject<boolean>(false);
   public readonly _loading = this.isLoading.asObservable();
+  
 
   constructor() { }
 
   show(){
     console.log("show()");
-   // prompt("Trwa ładowannie danych ...");
     return this.isLoading.next(true); 
    }
 

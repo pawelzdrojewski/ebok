@@ -10,6 +10,7 @@ import { NavibarAdminComponent } from './navibar-admin/navibar-admin.component';
 import { OdczytyComponent } from './odczyty/odczyty.component';
 import { RegisterComponent } from './register/register.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
+import { PowiadomieniaComponent } from './powiadomienia/powiadomienia.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'navibar-admin', component: NavibarAdminComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'spiner', component: SpinnerOverlayComponent}
+  {path: 'spiner', component: SpinnerOverlayComponent},
+  {path: 'powiadomienia', component: PowiadomieniaComponent}
 ];
 
 @NgModule({

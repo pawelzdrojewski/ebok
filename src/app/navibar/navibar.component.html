@@ -44,15 +44,15 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Pomoc</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Powiadomienia</a>
-        </li>
-
       </ul>
       <!-- Left links -->
-      <button type="button" class="btn btn-link px-7 me-7">
-        <i class="bi bi-bell-fill fa-2x" alt="powiadomienia"></i>
-        matBadge="8"</button>
+      <a type="button" class=" notification btn btn-link px-7 me-7" routerLink="/powiadomienia" routerLinkActive="active">
+        <i class="bi bi-bell-fill fa-3x" alt="powiadomienia"></i>
+        <div class="button__badge">
+          <span class="badge bg-danger ">99</span>
+        </div>
+      </a>
+
       <button type="button" class="btn btn-link px-3 me-2">
         Licznik nr: 000074321 Rynek Bednarski 1
       </button> 
@@ -60,7 +60,6 @@
           Wyloguj
         </button>
         <button type="button" class="btn btn-link px-7 me-7"><i class="fas fa-universal-access fa-3x" alt="ułatwianie dostępu"></i></button>
-        app-powiadomienia
   
     </div>
     <!-- Collapsible wrapper -->

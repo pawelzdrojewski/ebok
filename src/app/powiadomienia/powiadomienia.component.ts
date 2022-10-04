@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PowiadomieniaComponent implements OnInit {
 
-  constructor() { }
+  rows = new Array(100);
+
+  constructor() {}
 
   ngOnInit(): void {
   }

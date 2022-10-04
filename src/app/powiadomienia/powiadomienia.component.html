@@ -2,6 +2,39 @@
     <app-navibar></app-navibar>
   </div>
 
-<div class="container"><p>powiadomienia works!</p></div>
+<div class="container ">
+    <div *ngFor="let row of rows">
+
+<div class="card border-success ">
+    <div class="card-header bg-light border-success">
+        <div class="form-check-inline">
+            <h5  class="h5">Planowane wyłączenia wody</h5>
+        </div>
+
+    </div>   
+    <div class="card-body ">
+      <h5 class="card-title"></h5>
+      <div><b>Miejsce:</b> City</div>
+      <div><b>Data:</b> 04.10.2022 r.</div>
+      <div><b>Szczegóły:</b></div>  
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. At tempore ullam doloribus modi impedit sapiente placeat quasi dolor autem harum eos beatae, incidunt a quia voluptatem nobis id blanditiis repudiandae?</p>
+      <a href="#!" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <div class="card-footer bg-light border-success">
+        <div class="form-check-inline">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkbox1">
+                <label class="form-check-label" for="checkbox1">
+                Odznacz jako przeczytana
+                </label>
+            </div>
+        </div>
+    </div>
+  </div>
+        <br>
+    </div>
+</div>
+
+
 
 

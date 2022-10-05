@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-powiadomienia',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PowiadomieniaComponent implements OnInit {
 
+
   rows = new Array(100);
 
   constructor() {}
 
   ngOnInit(): void {
+
   }
 
 }

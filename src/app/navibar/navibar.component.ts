@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-navibar',
@@ -9,10 +10,19 @@ import { AuthService } from '../auth.service';
 })
 export class NavibarComponent implements OnInit {
 
+  //load_badge = this.http.loader_badge;
+  badge?: number;
+
   constructor( public Auth: AuthService,
-               private router: Router) { }
+               private router: Router,
+               private http: HttpService) { }
 
   ngOnInit(): void {
+      this.http.notifi_subject.subscribe(
+    //this.http.loader_badge.subscribe(   //????? taki i tak działa 
+      (badge) => {this.badge = badge}
+    );
+
   }
   out(){
     this.Auth.logout();

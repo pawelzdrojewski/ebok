@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 
 const url = 'https://www.solution-it.pl/ebok/';
@@ -22,6 +22,9 @@ export interface Faktura{
   providedIn: 'root'
 })
 export class HttpService {
+
+  notifi_subject = new BehaviorSubject<number>(Math.random() *10);
+  public readonly loader_badge = this.notifi_subject.asObservable();
 
   constructor(private http: HttpClient) {
     

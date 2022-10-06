@@ -8,10 +8,10 @@ import { HttpService } from '../http.service';
 })
 export class PowiadomieniaComponent implements OnInit {
 
-  dataSource: any;
+  notifications: any;
   required: string = 'notifications';
 
-  rows = new Array(100);
+  rows = new Array(0);
 
   constructor(private httpService: HttpService) {}
 
@@ -22,8 +22,8 @@ export class PowiadomieniaComponent implements OnInit {
   NotificationsyGet(text: string){  
     this.httpService.getNotifications(text).subscribe(
       (response) => { 
-       // this.dataSource = response; 
-       console.log("Response: "+response);
+        this.notifications = response; 
+       console.log("Response: "+this.notifications);
       },
       (error) => { console.log(error); }
       );

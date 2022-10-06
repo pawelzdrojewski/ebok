@@ -16,7 +16,13 @@ export interface Faktura{
     Kwota: number;
     Data_platnosci: string;
     Status: string;
-} 
+}
+export interface Notificatio{
+  ID: number;
+  Data: any;
+  Title: string;
+  Details: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +35,9 @@ export class HttpService {
   constructor(private http: HttpClient) {
     
    }
-
-   
+   getNotifications(text: string): Observable<any> {   
+     return this.http.get<Notification[]>(url+text);
+   }
 
   getAllFaktury(text: string): Observable<any> {   
                

@@ -54,12 +54,5 @@ export class LoginComponent implements OnInit {
         (error) => console.log(error),      
       )
     }
-  }
-
-  save(event:any) {
-    console.log("You entered: ", event.target.value);
-  }
-  
+  }  
 }
-
-

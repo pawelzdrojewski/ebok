@@ -29,7 +29,7 @@ export interface Notificatio{
 })
 export class HttpService {
 
-  notifi_subject = new BehaviorSubject<number>(Math.random() *10);
+  notifi_subject = new BehaviorSubject<number>(18);
   public readonly loader_badge = this.notifi_subject.asObservable();
 
   constructor(private http: HttpClient) {

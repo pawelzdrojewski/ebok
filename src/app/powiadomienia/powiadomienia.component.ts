@@ -20,12 +20,10 @@ export class PowiadomieniaComponent implements OnInit {
 
   }
   NotificationsyGet(text: string){  
-    this.httpService.getNotifications(text).subscribe(
-      (response) => { 
-        this.notifications = response; 
-       console.log("Response: "+this.notifications);
-      },
-      (error) => { console.log(error); }
+    this.httpService.getNotifications(text)
+    .subscribe(
+      (response) => { this.notifications = response},
+      (error) => { console.log(error)}
       );
   }
 

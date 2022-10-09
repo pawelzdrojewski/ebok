@@ -22,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { LoaderInterceptor } from './loader.interceptor';
 import { PowiadomieniaComponent } from './powiadomienia/powiadomienia.component';
+import { NotifiEditorComponent } from './notifi-editor/notifi-editor.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { PowiadomieniaComponent } from './powiadomienia/powiadomienia.component'
     RegisterComponent,
     SpinnerOverlayComponent,
     PowiadomieniaComponent,
+    NotifiEditorComponent,
     
   ],
   imports: [

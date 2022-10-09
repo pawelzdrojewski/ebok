@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.myFormModel.value);
+   // console.log(this.myFormModel.value);
 
     this.http.postNewUser(this.myFormModel).subscribe(
       (response) => { this.myFormModel = response; },

@@ -11,6 +11,7 @@ import { OdczytyComponent } from './odczyty/odczyty.component';
 import { RegisterComponent } from './register/register.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { PowiadomieniaComponent } from './powiadomienia/powiadomienia.component';
+import { NotifiEditorComponent } from './notifi-editor/notifi-editor.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'navibar-admin', component: NavibarAdminComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'spiner', component: SpinnerOverlayComponent},
-  {path: 'powiadomienia', component: PowiadomieniaComponent}
+  {path: 'powiadomienia', component: PowiadomieniaComponent},
+  {path: 'komunikaty', component: NotifiEditorComponent}
 ];
 
 @NgModule({

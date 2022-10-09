@@ -24,6 +24,8 @@ export class NotifiEditorComponent implements OnInit {
   onSubmit(){
     console.log(this.myFormModel.value)
 
+    
+
   }
 
 }

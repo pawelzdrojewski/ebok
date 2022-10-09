@@ -44,6 +44,10 @@ export class HttpService {
    // return this.http.get<Faktura[]>(url+text, {headers: myHeaders});
     return this.http.get<Faktura[]>(url+text);
   }
+  postNewNotifi(NotifiData: FormGroup): Observable<any>{
+    console.log("postNewNotifi in service "+NotifiData.value);
+     return this.http.post(url+'messasge', NotifiData.value);
+   }
 
   postNewUser(userData: FormGroup): Observable<any>{
     // console.log(userData.value);

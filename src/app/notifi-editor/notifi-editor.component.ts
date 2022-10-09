@@ -7,13 +7,17 @@ import { HttpService } from '../http.service';
   templateUrl: './notifi-editor.component.html',
   styleUrls: ['./notifi-editor.component.scss']
 })
+
 export class NotifiEditorComponent implements OnInit {
+
+  
 
   myFormModel: FormGroup;
 
   constructor(private http: HttpService,  fb: FormBuilder) { 
     this.myFormModel = fb.group({
       title: ['', Validators.required],
+     // data: ['', Validators.required],
       details: ['', Validators.required],
     });
   }
@@ -22,10 +26,14 @@ export class NotifiEditorComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.myFormModel.value)
+      console.log("component "+this.myFormModel.value);
 
-    
+     this.http.postNewNotifi(this.myFormModel).subscribe(
+      (response) => { this.myFormModel = response; },
+      (error) => { console.log(error); }
+    );
 
+    }
   }
 
-}
+

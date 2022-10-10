@@ -10,8 +10,6 @@ import { HttpService } from '../http.service';
 
 export class NotifiEditorComponent implements OnInit {
 
-  
-
   myFormModel: FormGroup;
 
   constructor(private http: HttpService,  fb: FormBuilder) { 
@@ -26,11 +24,12 @@ export class NotifiEditorComponent implements OnInit {
   }
 
   onSubmit(){
-      console.log("component "+this.myFormModel.value);
+      
 
      this.http.postNewNotifi(this.myFormModel).subscribe(
-      (response) => { this.myFormModel = response; },
-      (error) => { console.log(error); }
+      (response) => { this.myFormModel = response; 
+        console.log("component "+this.myFormModel);},
+      (error) => { console.log("Error " +error); }
     );
 
     }

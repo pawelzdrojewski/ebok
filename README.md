@@ -1,6 +1,11 @@
+
 # ebok
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
+
+## O aplikacji
+
+Aplikacja ebok realizuję zadania przeznaczone dla elektronicznego biura obsługi klienta takie jak: informacja o płatnościach, powiadomienia, logowanie rejestracja użytkownika. W aplikacji zaimplementowane uwierzytelnienie klienta za pomocą klucza JWA oraz spinner display loader  w wykorzystaniem funkcji interceptora. Wymiana danych z bazą MySql odbywa się za pomocą REST API. Po stronie serwera znajduje się api na bazie node Express. Frontend używa mdbootstrapa oraz sam bootstrap.
 
 ## Development server
 

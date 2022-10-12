@@ -27,8 +27,7 @@ export class NotifiEditorComponent implements OnInit {
       
 
      this.http.postNewNotifi(this.myFormModel).subscribe(
-      (response) => { this.myFormModel = response; 
-        console.log("component "+this.myFormModel);},
+      (response) => { this.myFormModel = response;},
       (error) => { console.log("Error " +error); }
     );
 

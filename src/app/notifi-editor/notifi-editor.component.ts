@@ -15,6 +15,8 @@ export class NotifiEditorComponent implements OnInit {
   constructor(private http: HttpService,  fb: FormBuilder) { 
     this.myFormModel = fb.group({
       title: ['', Validators.required],
+      city: ['', Validators.required],
+      date: ['', Validators.required],
       details: ['', Validators.required],
     });
   }
@@ -24,9 +26,7 @@ export class NotifiEditorComponent implements OnInit {
   onSubmit(){
      this.http.postNewNotifi(this.myFormModel).subscribe(
       (response) => { this.myFormModel = response;},
-      (error) => { 
-        console.log("Error "); 
-        console.log(error); }
+      (error) => {console.log(error); }
     );
 
     }

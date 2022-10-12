@@ -16,12 +16,12 @@ export class LoadService {
   constructor() { }
 
   show(){
-    console.log("show()");
+   // console.log("show()");
     return this.isLoading.next(true); 
    }
 
    hiden(){
-    console.log("hiden()");
+ //   console.log("hiden()");
    return  this.isLoading.next(false);
    }
 }

@@ -15,20 +15,19 @@ export class NotifiEditorComponent implements OnInit {
   constructor(private http: HttpService,  fb: FormBuilder) { 
     this.myFormModel = fb.group({
       title: ['', Validators.required],
+
+      city: ['', Validators.required],
+      date: ['', Validators.required],
       details: ['', Validators.required],
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(){
-    console.log("title "+this.myFormModel.value.title);
-    console.log("details "+this.myFormModel.value.details);
-
      this.http.postNewNotifi(this.myFormModel).subscribe(
       (response) => { this.myFormModel = response;},
-      (error) => { console.log(error); }
+      (error) => {console.log(error); }
     );
 
     }

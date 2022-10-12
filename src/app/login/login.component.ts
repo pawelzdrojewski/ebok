@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { AuthInterceptor } from '../auth.interceptor';
-import { JwtInterceptor } from '@auth0/angular-jwt';
+
 
 @Component({
   selector: 'app-login',

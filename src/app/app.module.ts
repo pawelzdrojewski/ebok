@@ -23,6 +23,7 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
 import { LoaderInterceptor } from './loader.interceptor';
 import { PowiadomieniaComponent } from './powiadomienia/powiadomienia.component';
 import { NotifiEditorComponent } from './notifi-editor/notifi-editor.component';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { NotifiEditorComponent } from './notifi-editor/notifi-editor.component';
     SpinnerOverlayComponent,
     PowiadomieniaComponent,
     NotifiEditorComponent,
+
     
   ],
   imports: [
@@ -51,7 +53,8 @@ import { NotifiEditorComponent } from './notifi-editor/notifi-editor.component';
     HttpClientModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-              { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+              { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 
+              AuthGuard,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

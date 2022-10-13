@@ -49,7 +49,7 @@ export class HttpService {
    }
 
   postNewUser(userData: FormGroup): Observable<any>{
-    // console.log(userData.value);
+
      return this.http.post(url+'add', userData.value);
    }
 

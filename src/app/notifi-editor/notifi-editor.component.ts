@@ -15,6 +15,7 @@ export class NotifiEditorComponent implements OnInit {
   constructor(private http: HttpService,  fb: FormBuilder) { 
     this.myFormModel = fb.group({
       title: ['', Validators.required],
+
       city: ['', Validators.required],
       date: ['', Validators.required],
       details: ['', Validators.required],

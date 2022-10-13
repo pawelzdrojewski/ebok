@@ -7,6 +7,7 @@ import { HttpService } from '../http.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
 
   myFormModel: FormGroup;

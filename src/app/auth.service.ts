@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import * as moment from "moment";
@@ -28,6 +28,8 @@ export class AuthService {
   klient?:  string;
 
   constructor(private http: HttpClient) { }
+
+  isLogged = new BehaviorSubject(false);
 
   login(userData: FormGroup): Observable<any>{
     this.klient = userData.value.login;

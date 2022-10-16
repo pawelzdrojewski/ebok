@@ -17,16 +17,16 @@ import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'faktury', component: FakturyComponent},
-  {path: 'liczniki', component: LicznikiComponent},
-  {path: 'odczyty', component: OdczytyComponent},
-  {path: 'klient', component: KlientComponent},
-  {path: 'zgloszenie', component: ZgloszeniaComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'navibar-admin', component: NavibarAdminComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'spiner', component: SpinnerOverlayComponent},
-  {path: 'powiadomienia', component: PowiadomieniaComponent},
+  {path: 'faktury', component: FakturyComponent, canActivate: [AuthGuard]},
+  {path: 'liczniki', component: LicznikiComponent, canActivate: [AuthGuard]},
+  {path: 'odczyty', component: OdczytyComponent, canActivate: [AuthGuard]},
+  {path: 'klient', component: KlientComponent, canActivate: [AuthGuard]},
+  {path: 'zgloszenie', component: ZgloszeniaComponent, canActivate: [AuthGuard]},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+  {path: 'navibar-admin', component: NavibarAdminComponent, canActivate: [AuthGuard]},
+  {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
+  {path: 'spiner', component: SpinnerOverlayComponent, canActivate: [AuthGuard]},
+  {path: 'powiadomienia', component: PowiadomieniaComponent, canActivate: [AuthGuard]},
   {path: 'komunikaty', component: NotifiEditorComponent, canActivate: [AuthGuard]}
 ];
 

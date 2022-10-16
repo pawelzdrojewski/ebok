@@ -37,9 +37,12 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem("Bearer");
     localStorage.removeItem("expires_at");
     sessionStorage.removeItem("Barer");
+    console.log(this.Auth.isLogged.value);
     if (this.userData.value.login && this.userData.value.password) {
       this.Auth.login(this.userData).subscribe(
-        (response) => { 
+        (response) => {
+          this.Auth.isLogged.next(true);
+          console.log(this.Auth.isLogged.value);
           if (response) {
             this.Auth.setSession(response);
             this.router.navigate(['/faktury']);

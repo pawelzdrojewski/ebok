@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   userData: any;
   //token: any;
-  info = false;
+  info = true;
  // authResult: any;
   
 
@@ -31,25 +31,23 @@ export class LoginComponent implements OnInit {
             
   }
 
-  ngOnInit(): void {}
-
-  login(){
+  ngOnInit(): void {
     localStorage.removeItem("Bearer");
     localStorage.removeItem("expires_at");
     sessionStorage.removeItem("Barer");
-    console.log(this.Auth.isLogged.value);
-    if (this.userData.value.login && this.userData.value.password) {
+  }
+
+  login(){
+    if (this.userData.value.login && this.userData.value.password) { // sprawdzenie czy są wypełnione dwa pola należy zmienić na funkcję validatora
       this.Auth.login(this.userData).subscribe(
         (response) => {
-          this.Auth.isLogged.next(true);
-          console.log(this.Auth.isLogged.value);
           if (response) {
+            this.Auth.isLogged.next(true);
             this.Auth.setSession(response);
             this.router.navigate(['/faktury']);
           }
           else{
-            this.info = true;
-            this.router.navigate(['/']); 
+            this.info = this.Auth.isLogged.value;
           }
         },
         (error) => console.log(error),      

@@ -12,6 +12,7 @@ export class NavibarComponent implements OnInit {
 
   //load_badge = this.http.loader_badge;
   badge?: number;
+  role_admin: boolean = true;
 
   constructor( public Auth: AuthService,
                private router: Router,

@@ -69,14 +69,15 @@ export class AuthService {
   }
 
   logout(){
-    this.session= false;  
+    this.session= false; 
+    this.isLogged.next(false); 
     localStorage.removeItem('Bearer');
-    sessionStorage.removeItem('Bearer');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.clear();
+    sessionStorage.removeItem('Bearer');
     sessionStorage.removeItem('id_token');
     sessionStorage.removeItem('expires_at');
-    localStorage.clear();
     sessionStorage.clear();
   }
   setError(){

@@ -25,14 +25,12 @@ export class AuthService {
 
   session: boolean = false;
   authResult: any;
-  klient?:  string;
 
   constructor(private http: HttpClient) { }
 
   isLogged = new BehaviorSubject(false);
 
   login(userData: FormGroup): Observable<any>{
-    this.klient = userData.value.login;
     return this.http.post<Users[]>(url+'auth?email='+userData.value.login+'&password='+userData.value.password, userData.value);
   }
 
@@ -53,9 +51,7 @@ export class AuthService {
   }
 
   verfiSession(rawToken: any){
-    
-       // const rawToken = JSON.parse(localStorage.getItem('Token') || '{}'); //tesowanie czy token nie jest pusty
-
+    // const rawToken = JSON.parse(localStorage.getItem('Token') || '{}'); //tesowanie czy token nie jest pusty
     //console.log("getToken "+ rawToken)
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(rawToken);
@@ -64,8 +60,6 @@ export class AuthService {
      //console.log("expirationDate "+ expirationDate);
     const isExpired = helper.isTokenExpired(rawToken);
     //console.log("isExpired "+ isExpired);
-   
-
   }
 
   logout(){
@@ -79,8 +73,5 @@ export class AuthService {
     sessionStorage.removeItem('id_token');
     sessionStorage.removeItem('expires_at');
     sessionStorage.clear();
-  }
-  setError(){
-    
   }
 }

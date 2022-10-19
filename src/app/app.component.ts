@@ -10,8 +10,8 @@ import { LoadService } from './load.service';
 export class AppComponent {
   title = 'e-bok';
 
-  _loading = this.loadService._loading;
-
   constructor(private loadService: LoadService) { }
+
+  _loading = this.loadService._loading;
 
 }

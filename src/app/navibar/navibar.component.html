@@ -20,44 +20,15 @@
 
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarButtonsExample">
-      <!-- Left links -->
-      <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" *ngIf="!role_admin">
-          <a class="nav-link" routerLink="/faktury" routerLinkActive="active">Faktury</a>
-        </li>
-        <li class="nav-item" *ngIf="!role_admin">
-          <a class="nav-link" routerLink="/liczniki" routerLinkActive="active">Liczniki</a>
-        </li>
-        <li class="nav-item" *ngIf="!role_admin">
-          <a class="nav-link" routerLink="/odczyty" routerLinkActive="active">Odczyty licznika</a>
-        </li>
- 
-        <li class="nav-item" *ngIf="!role_admin">
-          <a class="nav-link" routerLink="/zgloszenie" routerLinkActive="active">Zgłoszenia</a>
-        </li>
-        <li class="nav-item" *ngIf="!role_admin">
-          <a class="nav-link" href="#">Statystyki</a>
-        </li>
-        <li class="nav-item" *ngIf="!role_admin">
-          <a class="nav-link" href="#">Umowy</a>
-        </li>
-        <li class="nav-item" *ngIf="!role_admin">
-          <a class="nav-link" href="#">Pomoc</a>
-        </li>
-        <li class="nav-item" *ngIf="role_admin">
-          <a class="nav-link" routerLink="/komunikaty" routerLinkActive="active">Komunikaty</a>
-        </li> 
-      </ul> -->
 
-      <!---888888888888888888888888888888888888888888888888888888888-->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngFor="let link of navlink">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngFor="let navilink of filter_navilinks">
         <li class="nav-item" >
-          <a class="nav-link" [routerLink]="link.link" routerLinkActive="active">{{link.navi}}</a>
+          <a class="nav-link" [routerLink]="navilink.link" routerLinkActive="active">{{navilink.navi}}</a>
         </li>
       </ul>
-      <!---888888888888888888888888888888888888888888888888888888888-->
-
       <!-- Left links -->
+
       <a type="button" class=" notification btn btn-link px-7 me-7" routerLink="/powiadomienia" routerLinkActive="active">
         <i class="bi bi-bell-fill fa-3x" alt="powiadomienia"></i>
         <div class="button__badge">

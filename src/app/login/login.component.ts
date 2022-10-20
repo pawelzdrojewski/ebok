@@ -40,7 +40,10 @@ export class LoginComponent implements OnInit {
           if (response) {
             this.Auth.isLogged.next(true);
             this.Auth.setSession(response);
-            this.router.navigate(['/faktury']);
+            if(this.Auth.role_admin.value)
+              this.router.navigate(['/komunikaty']);
+            else
+              this.router.navigate(['/faktury']);
           }
           else{
             this.info = this.Auth.isLogged.value;

@@ -21,7 +21,7 @@
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarButtonsExample">
       <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item" *ngIf="!role_admin">
           <a class="nav-link" routerLink="/faktury" routerLinkActive="active">Faktury</a>
         </li>
@@ -46,8 +46,16 @@
         </li>
         <li class="nav-item" *ngIf="role_admin">
           <a class="nav-link" routerLink="/komunikaty" routerLinkActive="active">Komunikaty</a>
+        </li> 
+      </ul> -->
+
+      <!---888888888888888888888888888888888888888888888888888888888-->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngFor="let link of navlink">
+        <li class="nav-item" >
+          <a class="nav-link" [routerLink]="link.link" routerLinkActive="active">{{link.navi}}</a>
         </li>
       </ul>
+      <!---888888888888888888888888888888888888888888888888888888888-->
 
       <!-- Left links -->
       <a type="button" class=" notification btn btn-link px-7 me-7" routerLink="/powiadomienia" routerLinkActive="active">

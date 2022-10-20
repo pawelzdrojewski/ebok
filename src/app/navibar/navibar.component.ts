@@ -12,8 +12,18 @@ export class NavibarComponent implements OnInit {
 
   //load_badge = this.http.loader_badge;
   badge?: number;
-  role_admin: boolean = true;
+  role_admin = this.Auth.role_admin.value;
 
+  navlink: {navi: string, link: string, role: string}[] = [
+    {navi: "Faktury", link: "/faktury", role: "user"},
+    {navi: "Liczniki", link: "/liczniki", role: "user"},
+    {navi: "Odczyt licznika", link: "/odczyty", role: "user"},
+    {navi: "Zgłoszenia", link: "/zgloszenie", role: "user"},
+    {navi: "Statystyki", link: "/faktury", role: "user"},
+    {navi: "Umowy", link: "/faktury", role: "user"},
+    {navi: "Pomoc", link: "/faktury", role: "user"},
+    {navi: "Komunikaty", link: "/komunikaty", role: "admin"},
+  ];
   constructor( public Auth: AuthService,
                private router: Router,
                private http: HttpService) { }
@@ -23,7 +33,7 @@ export class NavibarComponent implements OnInit {
     //this.http.loader_badge.subscribe(   //????? taki i tak działa 
       (badge) => {this.badge = badge}
     );
-
+    console.log(this.navlink[0].link)
   }
   out(){
     this.Auth.logout();

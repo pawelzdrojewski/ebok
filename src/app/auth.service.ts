@@ -29,6 +29,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   isLogged = new BehaviorSubject(false);
+  role_admin = new BehaviorSubject(false);
 
   login(userData: FormGroup): Observable<any>{
     return this.http.post<Users[]>(url+'auth?email='+userData.value.login+'&password='+userData.value.password, userData.value);

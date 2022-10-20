@@ -18,7 +18,7 @@ export class NavibarComponent implements OnInit {
   role_admin = this.Auth.role_admin.value;
 
   navlinks: {navi: string, link: string, role: string}[] = [
-    {"navi": "Faktury", link: "/faktury", role: "user"},
+    {navi: "Faktury", link: "/faktury", role: "user"},
     {navi: "Liczniki", link: "/liczniki", role: "user"},
     {navi: "Odczyt licznika", link: "/odczyty", role: "user"},
     {navi: "Zgłoszenia", link: "/zgloszenie", role: "user"},

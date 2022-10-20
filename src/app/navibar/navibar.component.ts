@@ -12,7 +12,11 @@ export class NavibarComponent implements OnInit {
 
   //load_badge = this.http.loader_badge;
   badge?: number;
+<<<<<<< HEAD
   role_admin = this.Auth.role_admin.value;
+=======
+  role_admin: boolean = false;
+>>>>>>> b268930ecec1e8a2acccf782624d65d34ec91721
 
   navlink: {navi: string, link: string, role: string}[] = [
     {navi: "Faktury", link: "/faktury", role: "user"},

@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/faktury']);
           }
           else{
-            this.info = true;
+            this.info = false;
             this.router.navigate(['/']); 
           }
         },

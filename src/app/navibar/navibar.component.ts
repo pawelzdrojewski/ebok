@@ -26,6 +26,7 @@ export class NavibarComponent implements OnInit {
     {navi: "Umowy", link: "#", role: "user"},
     {navi: "Pomoc", link: "#", role: "user"},
     {navi: "Komunikaty", link: "/komunikaty", role: "admin"},
+    {navi: "Użytkownicy", link: "/users", role: "admin"},
   ];
 
   filter_navilinks?: {navi: string, link: string, role: string}[];

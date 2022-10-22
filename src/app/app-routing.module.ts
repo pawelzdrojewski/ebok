@@ -13,6 +13,7 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
 import { PowiadomieniaComponent } from './powiadomienia/powiadomienia.component';
 import { NotifiEditorComponent } from './notifi-editor/notifi-editor.component';
 import { AuthGuard } from './auth.guard';
+import { UsersComponent } from './users/users.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
   {path: 'spiner', component: SpinnerOverlayComponent, canActivate: [AuthGuard]},
   {path: 'powiadomienia', component: PowiadomieniaComponent, canActivate: [AuthGuard]},
-  {path: 'komunikaty', component: NotifiEditorComponent, canActivate: [AuthGuard]}
+  {path: 'komunikaty', component: NotifiEditorComponent, canActivate: [AuthGuard]},
+  {path: 'users', component: UsersComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

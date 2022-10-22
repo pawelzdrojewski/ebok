@@ -24,6 +24,7 @@ import { LoaderInterceptor } from './loader.interceptor';
 import { PowiadomieniaComponent } from './powiadomienia/powiadomienia.component';
 import { NotifiEditorComponent } from './notifi-editor/notifi-editor.component';
 import { AuthGuard } from './auth.guard';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { AuthGuard } from './auth.guard';
     SpinnerOverlayComponent,
     PowiadomieniaComponent,
     NotifiEditorComponent,
+    UsersComponent,
 
     
   ],

@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'zgloszenie', component: ZgloszeniaComponent, canActivate: [AuthGuard]},
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   {path: 'navibar-admin', component: NavibarAdminComponent, canActivate: [AuthGuard]},
-  {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
+  {path: 'register', component: RegisterComponent},
   {path: 'spiner', component: SpinnerOverlayComponent, canActivate: [AuthGuard]},
   {path: 'powiadomienia', component: PowiadomieniaComponent, canActivate: [AuthGuard]},
   {path: 'komunikaty', component: NotifiEditorComponent, canActivate: [AuthGuard]},

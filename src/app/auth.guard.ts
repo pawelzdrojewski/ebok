@@ -11,8 +11,7 @@ export class AuthGuard implements CanActivate {
   constructor(private Auth: AuthService,
               private router: Router,
               ){}
-  canActivate(route: ActivatedRouteSnapshot,
-              state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     console.log("Trasa zawsze aktywna");  
     console.log(this.Auth.isLogged.value);
 

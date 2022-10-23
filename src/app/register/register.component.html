@@ -17,8 +17,8 @@
   
         <!-- Username input -->
         <div class="form-outline mb-4">
-        <label class="form-label">Username</label>
-          <input type="text" formControlName="registerUsername" class="form-control" style="border: 1px solid rgb(18, 102, 241);"/>
+        <label class="form-label">Username</label> 
+          <input type="text" formControlName="registerUsername" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
         </div>
   
         <!-- Email input -->
@@ -69,5 +69,6 @@
         
   
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-3">Zarejestruj się</button>
+        <input [disabled]="!myFormModel.valid" type="submit" value="Zarejestruj się" class="btn btn-primary btn-block mb-3">
+        <!-- <button [disabled]="!myFormModel.valid" type="submit" class="btn btn-primary btn-block mb-3">Zarejestruj się</button> -->
       </form>

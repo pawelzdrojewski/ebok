@@ -21,7 +21,7 @@
         <div class="form-outline mb-4">
         <label class="form-label">Username</label> 
           <input type="text" formControlName="registerUsername" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
-          <p  class="text-danger" *ngIf="myFormModel.invalid">Pole obowiązkowe. Minimum 5 znaków</p>
+          <p  class="text-danger" *ngIf="myFormModel.controls['registerUsername'].invalid ">Pole obowiązkowe. Minimum 5 znaków</p>
         </div>
   
         <!-- Email input -->

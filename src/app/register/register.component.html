@@ -8,23 +8,27 @@
         <div class="form-outline mb-4">
           <label class="form-label">Imię</label>
           <input type="text" formControlName="FirstName" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
+          <p  class="text-danger" *ngIf="myFormModel.invalid">Pole obowiązkowe</p>
         </div>
         <!-- Surname input -->
         <div class="form-outline mb-4">
           <label class="form-label">Nazwisko</label>
           <input type="text" formControlName="userSurname" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
+          <p  class="text-danger" *ngIf="myFormModel.invalid">Pole obowiązkowe</p>
         </div>
   
         <!-- Username input -->
         <div class="form-outline mb-4">
         <label class="form-label">Username</label> 
           <input type="text" formControlName="registerUsername" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
+          <p  class="text-danger" *ngIf="myFormModel.invalid">Pole obowiązkowe. Minimum 5 znaków</p>
         </div>
   
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <label class="form-label">Email</label>
+          <label class="form-label" >Email</label>
           <input type="email" formControlName="registerEmail" class="form-control" style="border: 1px solid rgb(18, 102, 241);"/>
+          <p  class="text-danger" *ngIf="!myFormModel.valid">Pole obowiązkowe. user@domain </p>
         </div>
   
         <!-- Password input -->

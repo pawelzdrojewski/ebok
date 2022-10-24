@@ -14,10 +14,10 @@ export class RegisterComponent implements OnInit {
 
   constructor(private http: HttpService,  fb: FormBuilder) { 
     this.myFormModel = fb.group({
-      FirstName: ['', Validators.required],
-      userSurname: ['', Validators.required],
-      registerUsername: ['', Validators.required],
-      registerEmail: ['', Validators.email],
+      FirstName: ['',  { validators: [Validators.required], updateOn: 'blur' }],
+      userSurname: ['',{ validators: [Validators.required], updateOn:  'blur'}],
+      registerUsername: ['',{ validstors: [Validators.required],updateOn:  'blur' }],
+      registerEmail: ['', { validators: [Validators.email], updateOn:  'blur'}], //'change' or 'blur' or 'submit'
       passwordsGroup: fb.group({
         registerPassword: ['',Validators.required], // , Validators.minLength(2) minLenhgt() wywołuje błąd w przegladarece ?????
         registerRepeatPassword: ['',Validators.required]

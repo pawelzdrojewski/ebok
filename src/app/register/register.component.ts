@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,11 +13,11 @@ export class RegisterComponent implements OnInit {
 
   myFormModel: FormGroup;
 
-  constructor(private http: HttpService,  fb: FormBuilder) { 
+  constructor(private http: HttpService,  fb: FormBuilder, private router: Router) { 
     this.myFormModel = fb.group({
       FirstName: ['',  { validators: [Validators.required], updateOn: 'blur' }],
       userSurname: ['',{ validators: [Validators.required], updateOn:  'blur'}],
-      registerUsername: ['',{ validstors: [Validators.required],updateOn:  'blur' }],
+      registerUsername: ['',{ validstors: [Validators.required], updateOn:  'blur' }],
       registerEmail: ['', { validators: [Validators.email], updateOn:  'blur'}], //'change' or 'blur' or 'submit'
       passwordsGroup: fb.group({
         registerPassword: ['',Validators.required], // , Validators.minLength(2) minLenhgt() wywołuje błąd w przegladarece ?????
@@ -44,6 +45,8 @@ export class RegisterComponent implements OnInit {
       (response) => { this.myFormModel = response; },
       (error) => { console.log(error); }
     );
+    confirm("Rejestracja przebiegła pomyślnie. Powót do strony logowania");
+    this.router.navigate(['/']);
 
     }
 

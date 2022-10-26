@@ -8,7 +8,7 @@
         <div class="form-outline mb-4">
           <label class="form-label">Imię</label>
           <input type="text" formControlName="FirstName" class="form-control input"  />
-          <ul class="text-danger list-unstyled" *ngIf="myFormModel.dirty && myFormModel.invalid"> 
+          <ul class="text-danger list-unstyled" *ngIf="myFormModel.controls['FirstName'].dirty && myFormModel.controls['FirstName'].invalid"> 
             <li *ngIf="myFormModel.controls['FirstName'].errors?.required">Proszę podać Imię.</li> 
             <li *ngIf="myFormModel.controls['FirstName'].errors?.minlength">Imię musi składać się przynajmniej z
             {{myFormModel.controls['FirstName'].errors?.minlength.requiredLength}} znaków. 
@@ -19,7 +19,7 @@
         <div class="form-outline mb-4">
           <label class="form-label">Nazwisko</label>
           <input type="text" formControlName="userSurname" class="form-control input"/>
-          <ul class="text-danger list-unstyled" *ngIf="myFormModel.dirty && myFormModel.invalid"> 
+          <ul class="text-danger list-unstyled" *ngIf="myFormModel.controls['userSurname'].dirty && myFormModel.controls['userSurname'].invalid"> 
             <li *ngIf="myFormModel.controls['userSurname'].errors?.required">Proszę podać Nazwisko.</li> 
             <li *ngIf="myFormModel.controls['userSurname'].errors?.minlength">Nazwisko musi składać się przynajmniej z
             {{myFormModel.controls['userSurname'].errors?.minlength.requiredLength}} znaków. 
@@ -29,11 +29,11 @@
   
         <!-- Username input -->
         <div class="form-outline mb-4">
-        <label class="form-label">Username</label> 
-          <input type="text" formControlName="registerUsername" class="form-control input"  />
-          <ul class="text-danger list-unstyled" *ngIf="myFormModel.dirty && myFormModel.invalid"> 
+          <label class="form-label">Użytkownik</label>
+          <input type="text" formControlName="registerUsername" class="form-control input"/>
+          <ul class="text-danger list-unstyled" *ngIf="myFormModel.controls['registerUsername'].dirty && myFormModel.controls['registerUsername'].invalid"> 
             <li *ngIf="myFormModel.controls['registerUsername'].errors?.required">Proszę podać nazwę użytkownika.</li> 
-            <li *ngIf="myFormModel.controls['registerUsername'].errors?.minlength">Nazwa użutkownika musi składać się przynajmniej z
+            <li *ngIf="myFormModel.controls['registerUsername'].errors?.minlength">Nazwa użytkownika musi składać się przynajmniej z
             {{myFormModel.controls['registerUsername'].errors?.minlength.requiredLength}} znaków. 
             </li>
           </ul>
@@ -43,7 +43,7 @@
         <div class="form-outline mb-4">
           <label class="form-label" >Email</label>
           <input type="email" formControlName="registerEmail" class="form-control input" />
-          <ul class="text-danger list-unstyled" *ngIf="myFormModel.dirty && myFormModel.invalid"> 
+          <ul class="text-danger list-unstyled" *ngIf="myFormModel.controls['registerEmail'].dirty && myFormModel.controls['registerEmail'].invalid"> 
             <li *ngIf="myFormModel.controls['registerEmail'].errors?.required">Proszę podać Nazwisko.</li> 
             <li *ngIf="myFormModel.controls['registerEmail'].errors?.email">Adres musi mieć postać user@domain.</li>
           </ul>

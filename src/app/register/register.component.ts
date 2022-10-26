@@ -15,10 +15,10 @@ export class RegisterComponent implements OnInit {
 
   constructor(private http: HttpService,  fb: FormBuilder, private router: Router) { 
     this.myFormModel = fb.group({
-      FirstName: ['',  { validators: [Validators.required], updateOn: 'blur' }],
-      userSurname: ['',{ validators: [Validators.required], updateOn:  'blur'}],
-      registerUsername: ['',{ validstors: [Validators.required], updateOn:  'blur' }],
-      registerEmail: ['', { validators: [Validators.email], updateOn:  'blur'}], //'change' or 'blur' or 'submit'
+      FirstName: ['',  { validators: [Validators.required, Validators.minLength(3)], updateOn: 'blur' }],
+      userSurname: ['',{ validators: [Validators.required, Validators.minLength(3)], updateOn:  'blur'}],
+      registerUsername: ['',{ validstors: [Validators.required, Validators.minLength(5)], updateOn:  'blur' }],
+      registerEmail: ['', { validators: [Validators.required, Validators.email], updateOn:  'blur'}], //'change' or 'blur' or 'submit'
       passwordsGroup: fb.group({
         registerPassword: ['',Validators.required], // , Validators.minLength(2) minLenhgt() wywołuje błąd w przegladarece ?????
         registerRepeatPassword: ['',Validators.required]
@@ -51,5 +51,3 @@ export class RegisterComponent implements OnInit {
     }
 
 }
-
-styles: ['.error {color: red;} ']

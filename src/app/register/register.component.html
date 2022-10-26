@@ -7,43 +7,58 @@
         <!-- Name input -->
         <div class="form-outline mb-4">
           <label class="form-label">Imię</label>
-          <input type="text" formControlName="FirstName" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
-          <p  class="text-danger" *ngIf="!myFormModel.valid">Pole obowiązkowe</p>
+          <input type="text" formControlName="FirstName" class="form-control input"  />
+          <ul class="text-danger list-unstyled" *ngIf="myFormModel.dirty && myFormModel.invalid"> 
+            <li *ngIf="myFormModel.controls['FirstName'].errors?.required">Proszę podać Imię.</li> 
+            <li *ngIf="myFormModel.controls['FirstName'].errors?.minlength">Imię musi składać się przynajmniej z
+            {{myFormModel.controls['FirstName'].errors?.minlength.requiredLength}} znaków. 
+            </li>
+          </ul>
         </div>
         <!-- Surname input -->
         <div class="form-outline mb-4">
           <label class="form-label">Nazwisko</label>
-          <input type="text" formControlName="userSurname" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
-          <p  class="text-danger" *ngIf="!myFormModel.valid">Pole obowiązkowe</p>
+          <input type="text" formControlName="userSurname" class="form-control input"/>
+          <ul class="text-danger list-unstyled" *ngIf="myFormModel.dirty && myFormModel.invalid"> 
+            <li *ngIf="myFormModel.controls['userSurname'].errors?.required">Proszę podać Nazwisko.</li> 
+            <li *ngIf="myFormModel.controls['userSurname'].errors?.minlength">Nazwisko musi składać się przynajmniej z
+            {{myFormModel.controls['userSurname'].errors?.minlength.requiredLength}} znaków. 
+            </li>
+          </ul>
         </div>
   
         <!-- Username input -->
         <div class="form-outline mb-4">
         <label class="form-label">Username</label> 
-          <input type="text" formControlName="registerUsername" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
-          <p  class="text-danger" *ngIf="!myFormModel.valid ">Pole obowiązkowe. Minimum 5 znaków</p>
-          <!-- <p  class="text-danger" *ngIf="myFormModel.controls['registerUsername'].invalid ">Pole obowiązkowe. Minimum 5 znaków</p> -->
-
+          <input type="text" formControlName="registerUsername" class="form-control input"  />
+          <ul class="text-danger list-unstyled" *ngIf="myFormModel.dirty && myFormModel.invalid"> 
+            <li *ngIf="myFormModel.controls['registerUsername'].errors?.required">Proszę podać nazwę użytkownika.</li> 
+            <li *ngIf="myFormModel.controls['registerUsername'].errors?.minlength">Nazwa użutkownika musi składać się przynajmniej z
+            {{myFormModel.controls['registerUsername'].errors?.minlength.requiredLength}} znaków. 
+            </li>
+          </ul>
         </div>
   
         <!-- Email input -->
         <div class="form-outline mb-4">
           <label class="form-label" >Email</label>
-          <input type="email" formControlName="registerEmail" class="form-control" style="border: 1px solid rgb(18, 102, 241);"/>
-          <p  class="text-danger" *ngIf="!myFormModel.valid">Pole obowiązkowe. user@domain </p>
+          <input type="email" formControlName="registerEmail" class="form-control input" />
+          <ul class="text-danger list-unstyled" *ngIf="myFormModel.dirty && myFormModel.invalid"> 
+            <li *ngIf="myFormModel.controls['registerEmail'].errors?.required">Proszę podać Nazwisko.</li> 
+            <li *ngIf="myFormModel.controls['registerEmail'].errors?.email">Adres musi mieć postać user@domain.</li>
+          </ul>
         </div>
   
         <!-- Password input -->
         <div formGroupName="passwordsGroup">
           <div class="form-outline mb-4">
             <label class="form-label">Password</label>
-            <input id="registerPassword" type="password" formControlName="registerPassword" class="form-control" style="border: 1px solid rgb(18, 102, 241);" />
-
+            <input id="registerPassword" type="password" formControlName="registerPassword" class="form-control input" />
           </div>
           <!-- Repeat Password input -->
           <div class="form-outline mb-4">
             <label class="form-label">Repeat password</label>
-            <input type="password" formControlName="registerRepeatPassword" class="form-control" style="border: 1px solid rgb(18, 102, 241);"/>
+            <input type="password" formControlName="registerRepeatPassword" class="form-control input" />
           </div>
         </div>
         <div class="text-center mb-3">

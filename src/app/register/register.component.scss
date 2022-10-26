@@ -1,3 +1,8 @@
-.in-valid{
+input.ng-dirty.ng-invalid {
+    color: rgb(241, 18, 18);
     border: 1px solid rgb(241, 18, 18);
-}
+  }
+
+  .input{
+    border: 1px solid rgb(18, 102, 241);
+  }

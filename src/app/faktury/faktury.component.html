@@ -22,7 +22,7 @@
 
 
 
-  <tbody>
+  <tbody id="faktura">
       <tr *ngFor="let faktura of dataSource; index as i" id="i">
         <td scope="col">{{i+1}}</td>
         <td scope="col">{{faktura.Numer}}</td>
@@ -32,7 +32,7 @@
         <td scope="col">{{faktura.Data_platnosci}}</td>
         <td scope="col" *ngIf="faktura.Status === 'Do zapłaty'"><div class="text-warning" >{{faktura.Status+' '}}<i class="bi bi-exclamation-circle"></i></div></td>
         <td scope="col" *ngIf="faktura.Status === 'Opłacona'"><div class="text-success" >{{faktura.Status+' '}}<i class="bi bi-check-circle"></i></div></td>
-        <td><button class="btn btn-primary" type="submit"><i class="bi bi-filetype-pdf"></i></button></td>
+        <td><button class="btn btn-primary" type="submit" (click)="getPDF()"><i class="bi bi-filetype-pdf"></i></button></td>
       </tr>
       <tr class="container" *ngIf="podglad">
         <th scope="row"></th>

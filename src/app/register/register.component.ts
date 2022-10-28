@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   onSubmit() {
    // console.log(this.myFormModel.value);
 
@@ -49,5 +50,21 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/']);
 
     }
+
+    // passwordConfirmValidator(control: FormControl): any {
+    //   let p = control.root.get('Password');
+    //   let pc = control.root.get('PasswordConfirm');
+    //   if (p && pc) {
+    //   if (p.value !== pc.value) {
+    //   pc.setErrors(
+    //   { "PasswordMismatch": true }
+    //   );
+    //   }
+    //   else {
+    //   pc.setErrors(null);
+    //   }
+    //   }
+    //   return null;
+    //   }
 
 }

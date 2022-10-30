@@ -2,7 +2,7 @@ import { Component, EnvironmentInjector, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-register',
@@ -10,12 +10,15 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./register.component.scss']
 })
 
+
+
 export class RegisterComponent implements OnInit {
 
   myFormModel: FormGroup;
-  enviromentKey = environment.recaptcha.siteKey;
+  RECAPTCHA_V2_SITE_KEY = '6LdzscYiAAAAAM0NsyI4UfGc78P-0VYbNVK1lqKg';
+  
 
-  constructor(private http: HttpService,  fb: FormBuilder, private router: Router) { 
+  constructor(private http: HttpService,  fb: FormBuilder, private router: Router ) { 
     this.myFormModel = fb.group({
       FirstName:        ['', { validators: [Validators.required, Validators.minLength(3)], updateOn: 'blur' }],
       userSurname:      ['', { validators: [Validators.required, Validators.minLength(3)], updateOn: 'blur' }],
@@ -38,9 +41,6 @@ export class RegisterComponent implements OnInit {
   //  * // });
   }
 
-  resolved(captchaResponse: string) {
-    console.log(`Resolved captcha with response: ${captchaResponse}`);
-  }
 
   ngOnInit(): void {
   }

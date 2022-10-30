@@ -1,4 +1,4 @@
-<div style=" position: absolute; margin: auto; top: -300px; right: 0; bottom: 0; left: 0; width: 400px; height: 400px;">
+<div style=" position: absolute; margin: auto; top: -450px; right: 0; bottom: 0; left: 0; width: 400px; height: 400px;">
       <form  [formGroup]="myFormModel" (ngSubmit)="onSubmit()" >
         <div class="text-center mb-3">
           <h3>Zarejestruj się:</h3>
@@ -88,7 +88,7 @@
           </label>
         </div>
         <div class="form-check d-flex justify-content-center mb-4">
-          <re-captcha formControlName="recaptcha" siteKey="{{enviromentKey}}"></re-captcha>
+          <re-captcha formControlName="recaptcha" siteKey="{{RECAPTCHA_V2_SITE_KEY}}"></re-captcha>
         </div>
         <!-- Submit button -->
         <input [disabled]="!myFormModel.valid" type="submit" value="Zarejestruj się" class="btn btn-primary btn-block mb-3">

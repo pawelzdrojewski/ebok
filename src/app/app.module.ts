@@ -26,7 +26,6 @@ import { NotifiEditorComponent } from './notifi-editor/notifi-editor.component';
 import { AuthGuard } from './auth.guard';
 import { UsersComponent } from './users/users.component';
 import { RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings, RECAPTCHA_SETTINGS } from 'ng-recaptcha';
-import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -60,10 +59,10 @@ import { environment } from 'src/environments/environment';
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
               { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 
-              { provide: RECAPTCHA_SETTINGS, useValue: {
-                  siteKey: environment.recaptcha.siteKey,
-                  } as RecaptchaSettings,
-              },
+              // { provide: RECAPTCHA_SETTINGS, useValue: { 
+              //     siteKey: recaptcha.RECAPTCHA_V2_SITE_KEY,
+              //     } as RecaptchaSettings,
+              // },
               AuthGuard,
 
             ],

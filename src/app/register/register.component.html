@@ -87,8 +87,11 @@
             Preczytałem i kaceptuję warunki
           </label>
         </div>
-        
-  
+        <div class="form-check d-flex justify-content-center mb-4">
+          <re-captcha formControlName="recaptcha" siteKey="{{enviromentKey}}"></re-captcha>
+        </div>
         <!-- Submit button -->
         <input [disabled]="!myFormModel.valid" type="submit" value="Zarejestruj się" class="btn btn-primary btn-block mb-3">
         <!-- <button [disabled]="!myFormModel.valid" type="submit" class="btn btn-primary btn-block mb-3">Zarejestruj się</button> -->
+        
+        

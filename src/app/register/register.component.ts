@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Component, EnvironmentInjector, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   myFormModel: FormGroup;
+  enviromentKey = environment.recaptcha.siteKey;
 
   constructor(private http: HttpService,  fb: FormBuilder, private router: Router) { 
     this.myFormModel = fb.group({
@@ -19,6 +21,7 @@ export class RegisterComponent implements OnInit {
       userSurname:      ['', { validators: [Validators.required, Validators.minLength(3)], updateOn: 'blur' }],
       registerUsername: ['', { validators: [Validators.required, Validators.minLength(3)], updateOn: 'blur' }],
       registerEmail:    ['', { validators: [Validators.required, Validators.email], updateOn: 'blur' }], //'change' or 'blur' or 'submit'
+      recaptcha:        ['', { validators: [Validators.required], updateOn: 'blur' }],
       passwordsGroup: fb.group({
         registerPassword: ['',Validators.required], // , Validators.minLength(2) minLenhgt() wywołuje błąd w przegladarece ?????
         registerRepeatPassword: ['',Validators.required]
@@ -33,6 +36,10 @@ export class RegisterComponent implements OnInit {
   //  K //     registerRepeatPassword: new FormControl('',[Validators.required, Validators.minLength(2)])
   //  * //     })
   //  * // });
+  }
+
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 
   ngOnInit(): void {

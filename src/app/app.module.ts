@@ -25,6 +25,8 @@ import { PowiadomieniaComponent } from './powiadomienia/powiadomienia.component'
 import { NotifiEditorComponent } from './notifi-editor/notifi-editor.component';
 import { AuthGuard } from './auth.guard';
 import { UsersComponent } from './users/users.component';
+import { RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings, RECAPTCHA_SETTINGS } from 'ng-recaptcha';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -53,10 +55,18 @@ import { UsersComponent } from './users/users.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
               { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 
-              AuthGuard,],
+              { provide: RECAPTCHA_SETTINGS, useValue: {
+                  siteKey: environment.recaptcha.siteKey,
+                  } as RecaptchaSettings,
+              },
+              AuthGuard,
+
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

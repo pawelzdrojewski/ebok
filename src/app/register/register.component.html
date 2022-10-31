@@ -86,8 +86,13 @@
           <label class="form-check-label" for="registerCheck">
             Preczytałem i kaceptuję warunki
           </label>
+          
         </div>
         <div class="form-check d-flex justify-content-center mb-4">
+          <p>Powrót do strony logowania <a routerLink="/">Zaloguj się</a></p>
+          </div>
+        <div class="form-check d-flex justify-content-center mb-4">
+          
           <re-captcha formControlName="recaptcha" siteKey="{{RECAPTCHA_V2_SITE_KEY}}"></re-captcha>
         </div>
         <!-- Submit button -->

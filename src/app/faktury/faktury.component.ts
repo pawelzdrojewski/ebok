@@ -1,6 +1,6 @@
 import { devOnlyGuardedExpression } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../http.service';
+import { Faktura, HttpService } from '../http.service';
 import { PDFDocument, StandardFonts, rgb, degrees } from 'pdf-lib'
 
 @Component({
@@ -8,14 +8,17 @@ import { PDFDocument, StandardFonts, rgb, degrees } from 'pdf-lib'
   templateUrl: './faktury.component.html',
   styleUrls: ['./faktury.component.scss']
 })
-export class FakturyComponent implements OnInit {
 
-  dataSource: any;
+
+export class FakturyComponent implements OnInit {
+  
+
+  dataSource: Faktura[] = [];
 
   podglad: boolean = false;
   required: string = 'allfv';
 
-  constructor(private httpService: HttpService){} //private Http: HttpService) { }
+  constructor(private httpService: HttpService, ){} //private Http: HttpService) { }
 
   ngOnInit(): void {
 
@@ -24,7 +27,8 @@ export class FakturyComponent implements OnInit {
 
   FakturyGet(text: string){  
     this.httpService.getAllFaktury(text).subscribe(
-      (response) => { this.dataSource = response; },
+      (response) => { this.dataSource = response;
+                      console.log(this.dataSource) },
       (error) => { console.log(error); }
       );
      // return this.dataSource;
@@ -81,3 +85,4 @@ a.download = "help.pdf";
   }
 
 }
+

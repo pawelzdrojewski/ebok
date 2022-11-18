@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   myFormModel: FormGroup;
-  private RECAPTCHA_V2_SITE_KEY = '6LdzscYiAAAAAM0NsyI4UfGc78P-0VYbNVK1lqKg';
+  RECAPTCHA_V2_SITE_KEY = '6LdzscYiAAAAAM0NsyI4UfGc78P-0VYbNVK1lqKg';
   
 
   constructor(private http: HttpService,  fb: FormBuilder, private router: Router ) { 

@@ -11,8 +11,8 @@ const url = 'https://www.solution-it.pl/ebok/';
 
 export interface Faktura{
     ID: number;
-    Numer: string;
-    Data_wystawienia: any;
+    Numer_fa: number;
+    Data_wystawienia: string;
     Kwota: number;
     Data_platnosci: string;
     Status: string;
@@ -39,7 +39,7 @@ export class HttpService {
      return this.http.get<Notification[]>(url+text);
    }
 
-  getAllFaktury(text: string): Observable<any> {   
+  getAllFaktury(text: string): Observable<Faktura[]> {   
                
    // return this.http.get<Faktura[]>(url+text, {headers: myHeaders});
     return this.http.get<Faktura[]>(url+text);
